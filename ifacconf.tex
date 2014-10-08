@@ -125,9 +125,119 @@ remarks are drawn in Section \ref{sec:conclusions}.
 % page limits of the event for which your paper is intended.
 
 
-\section{General Overview}
+\section{General Overview}\label{sec:general_overview}
 
-Next we see a few subsections.
+The proposed system is composed of a robot with cameras, microphones, gas,
+vibration and temperature sensors, and a manipulator arm. The robotic device is
+guided by a rail and both the robot and the rail follows a modularity concept.
+Additional robot modules can be annexed to include other sensors, and the rail
+track can be modified by adding or replacing rail segments, thus enabling
+operation in different areas of the platform.% Robot modules are organized by
+% functionality, for example, traction and sensing modules.
+
+The robot will be controlled autonomously or by teleoperation. Task managing
+can be either in automatic (programmed using a mission interface) or manual
+mode (real-time remote operation). The teleoperation and monitoring
+capabilities guarantee online access to the embedded sensors, providing
+information about the surrounding environment and the robot operating
+conditions with real-time processing. Figure~\ref{fig:DORIS-overview}
+illustrates the operation in a production plant.
+
+%\begin{figure} [!h]
+%    \begin{center}
+%    \includegraphics[width=8.8cm]{figs/DORIS_overview.jpg}  % width is 8.4 cm.
+%    \caption{Illustration of the DORIS robot operating in a platform topside environment}
+%    \label{fig:DORIS-overview}
+%    \end{center}
+%\end{figure}
+
+\begin{figure}[ht]
+\centering
+\subfigure[Robot's operational scenario in a production plant]{%
+    \includegraphics[width=8.4cm]{figs/cenario1.jpg}  % width is 7.6 cm.
+    \label{fig:cenario1}}
+\subfigure[Detailed zoom of the robot]{%
+    \includegraphics[width=8.4cm]{figs/zoom.jpg}  % width is 7.6 cm.
+    \label{fig:zoom}}\vspace{-.1cm}
+\caption{Illustration of the DORIS robot operating in a production plant.}\vspace{-0.25cm}
+\label{fig:DORIS-overview}
+\end{figure}
+
+The DORIS project can be divided into five subsystems: electronics, power
+supply, software, mechanics and signal processing.
+
+%-------------------------------------------------------------------------------------------------------------------------
+%ELECTRONICS
+%-------------------------------------------------------------------------------------------------------------------------
+The electronics subsystem is responsible for providing embedded computational
+support for the robot control, signal processing, task managing, and local and
+remote communication. The device motion is controlled through drivers that can
+receive position, velocity, or current setpoints.% (EPOS from Maxon Motors)
+
+%Concerning robustness and safety required to operate in harsh environments, the robot  must be sealed against water and ingress of objects, resistant to a wide temperature range, protected from impact and vibration, electrically protected to avoid explosion by ignition, and equipped with a monitoring system.%protected 2x?
+
+%-------------------------------------------------------------------------------------------------------------------------
+%POWER SUPPLY
+%-------------------------------------------------------------------------------------------------------------------------
+The power supply system uses military-class lithium-ion batteries, which have a
+small size and a high energy capacity. Four batteries are used to power the
+motors and two to power the other electronics components. It is essential to
+monitor the batteries' behavior so that faults can be avoided. The power
+management interface is implemented through System Management Bus (SMBus)
+connections, allowing the electronics system to receive all possible information about each battery state.
+
+%Considering the requirements to operate in harsh environments and classified areas,
+
+%-------------------------------------------------------------------------------------------------------------------------
+%SOFTWARE
+%-------------------------------------------------------------------------------------------------------------------------
+The main objective of the software subsystem is to allow the implementation of
+high- and low-level control of the robot. The tools used to develop DORIS
+software architecture must consider two important factors: they have to be
+commercially available, and provide modular functionalities. These requirements
+led to the adoption of Qt as the graphical interface framework ~\cite{qt},
+Robot Operating System (ROS) as the communication middleware ~\cite{ros}, and
+Ubuntu as the operating system.
+
+%Robots may be very complex, so it is important to divide this complexity into smaller, independent parts.
+
+The software provides autonomous control (programmed tasks) and remote control
+through a Graphical User Interface (GUI) in the Host Control Base (HCB)
+computer. The HCB is composed of a set of processes running in parallel
+denominated ROS nodes, which can communicate with each other. To deal with this
+environment, a new software architecture called Robot Package Software is
+proposed, dividing the software into tools (graphical windows) and components
+(processing and communication unities), and grouping them into a dynamic
+library. %A DORIS Package is developed as a library containing a list of components and tools for the DORIS robot.
+
+%Firstly, the robot needs to perform the task it is set to do and do so in the safest and most efficient way. This may include the control of the robot and machine learning algorithms. The software also needs to be suited for low-level control of the various components when this is not embedded.
+
+%-------------------------------------------------------------------------------------------------------------------------
+%OTHER CHALLENGES
+%-------------------------------------------------------------------------------------------------------------------------
+Considering the robot functionalities and the aggressive offshore environment,
+several challenges should be addressed. Temperatures in offshore facilities can
+vary between $-30^{\circ}$C to $50^{\circ}$C, relative humidity can reach
+100\%, and there may be splash water, salty air, storms, and high extensive
+corrosion ~\cite{graf2007mobile}. 
+
+Concerning robustness and safety required to operate in classified areas, the
+robot must be sealed against water and objects, resistant to a wide temperature
+range, protected from impact and vibration, electrically shielded to avoid
+explosion by ignition, and equipped with a monitoring system.
+
+%{\color{red}Moreover, the robot parts must have special enclosures to turn it explosion-proof and allow operation in classified areas.}
+
+Another challenge is that the embedded computers must run heavy signal
+processing algorithms, requiring high computational power. However, the power
+supply subsystem must efficiently provide power and maintain a low level of
+power consumption.
+
+Further complications arise because the system is designed to move in confined
+areas and have efficient wireless communication with operators, providing
+online information of sensors data. Finally, the robot must have a modular and
+flexible design, employing plug and play extensions.%, which represents an
+% additional complication.%challenge?
 
 \subsection{Review Stage}
 
@@ -148,9 +258,6 @@ we had but time and space enough.
 \begin{equation} \label{eq:sample}
 {{\partial F}\over {\partial t}} = D{{\partial^2 F}\over {\partial x^2}}.
 \end{equation}
-
-See \cite{Abl:56}, \cite{AbTaRu:54}, \cite{Keo:58} and \cite{Pow:85} and
-\cite{skourup2009robotized}.
 
 \subsubsection{Example.} This equation goes far beyond the
 celebrated theorem ascribed to the great Pythagoras by his followers.
