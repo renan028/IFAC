@@ -173,19 +173,21 @@ supply, software, mechanics and signal processing.
 The electronics subsystem is responsible for providing embedded computational
 support for the robot control, signal processing, task managing, and local and
 remote communication. The device motion is controlled through drivers that can
-receive position, velocity, or current setpoints.% (EPOS from Maxon Motors)
+receive position, velocity, or current setpoints. The embedded electronics has
+two printed circuit boards for the vehicle support system: energy distribution
+and monitoring, basic failure detection, emergency handling and devices'
+control.
+% (EPOS from Maxon Motors)
 
 %Concerning robustness and safety required to operate in harsh environments, the robot  must be sealed against water and ingress of objects, resistant to a wide temperature range, protected from impact and vibration, electrically protected to avoid explosion by ignition, and equipped with a monitoring system.%protected 2x?
 
 %-------------------------------------------------------------------------------------------------------------------------
 %POWER SUPPLY
 %-------------------------------------------------------------------------------------------------------------------------
-The power supply system uses military-class lithium-ion batteries, which have a
-small size and a high energy capacity. Four batteries are used to power the
-motors and two to power the other electronics components. It is essential to
-monitor the batteries' behavior so that faults can be avoided. The power
-management interface is implemented through System Management Bus (SMBus)
-connections, allowing the electronics system to receive all possible information about each battery state.
+The power supply system uses military-class lithium-ion batteries, which have
+small size and high energy capacity. In the first prototype of DORIS, four
+batteries are used to power the motors and two to power the other electronics
+components. 
 
 %Considering the requirements to operate in harsh environments and classified areas,
 
@@ -212,6 +214,28 @@ proposed, dividing the software into tools (graphical windows) and components
 library. %A DORIS Package is developed as a library containing a list of components and tools for the DORIS robot.
 
 %Firstly, the robot needs to perform the task it is set to do and do so in the safest and most efficient way. This may include the control of the robot and machine learning algorithms. The software also needs to be suited for low-level control of the various components when this is not embedded.
+
+%-------------------------------------------------------------------------------------------------------------------------
+%Mechanics
+%-------------------------------------------------------------------------------------------------------------------------
+The mechanical project designs the rail, the
+traction and passive modules, and the joints used to couple them. The design
+allows the robot to move smoothly in a 3D space and makes full stop anywhere
+on the rail. Considering the severe corrosion and weather conditions in
+offshore environments, the choice of materials are imperative to the success of
+the project and certified solutions must be considered.
+
+The robot is composed of two modules at its default configuration, but it is
+conceived so that other modules can be added. The total weight of this
+configuration is estimated at 50 kg and we expect to have a maximum speed of
+1m/s.
+
+The design incorporates the use of gimbals with wheels as guides for
+the module on the rail. The motors are fixed on the gimbal and transmit its
+torque to the wheels via spur gears. The use of gimbals is an proper choice
+concerning stability, guidance, and support. Furthermore, it is possible to have
+a smooth vertical motion applying radial forces by the clamping mechanism.
+
 
 %-------------------------------------------------------------------------------------------------------------------------
 %OTHER CHALLENGES
