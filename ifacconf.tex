@@ -125,7 +125,6 @@ remarks are drawn in Section \ref{sec:conclusions}.
 % Page limits may vary from conference to conference. Please observe the 
 % page limits of the event for which your paper is intended.
 
-
 \section{General Overview}\label{sec:general_overview}
 
 The proposed system is composed of a robot with cameras, microphones, gas,
@@ -231,10 +230,15 @@ configuration is estimated at 50 kg and we expect to have a maximum speed of
 1m/s.
 
 The design incorporates the use of gimbals with wheels as guides for
-the module on the rail. The motors are fixed on the gimbal and transmit its
-torque to the wheels via spur gears. The use of gimbals is an proper choice
-concerning stability, guidance, and support. Furthermore, it is possible to have
-a smooth vertical motion applying radial forces by the clamping mechanism.
+the module on the rail \cite{cba}. In the new configuration, the motors are
+fixed on the gimbal and transmit its torque to the wheels via spur gears. The use of gimbals
+is an proper choice concerning stability, guidance, and support. Furthermore,
+it is possible to have a smooth vertical motion applying radial forces by the
+clamping mechanism.
+
+%-------------------------------------------------------------------------------------------------------------------------
+%DSP
+%-------------------------------------------------------------------------------------------------------------------------
 
 
 %-------------------------------------------------------------------------------------------------------------------------
@@ -264,229 +268,134 @@ online information of sensors data. Finally, the robot must have a modular and
 flexible design, employing plug and play extensions.%, which represents an
 % additional complication.%challenge?
 
-\subsection{Review Stage}
 
-For submission guidelines, follow instructions on paper submission
-system as well as the event website.
 
-Note that conferences impose strict page limits, so it will be better
-for you to prepare your initial submission in the camera ready layout
-so that you will have a good estimate for the paper
-length. Additionally, the effort required for final submission will be
-minimal.
 
-\subsection{Equations}
+\section{Embedded Electonics}\label{sec:electronics_overview}
 
-Some words might be appropriate describing equation~(\ref{eq:sample}), if 
-we had but time and space enough. 
+\section{Power supply system}\label{sec:powersupply_overview}
+This part of the robot is responsible for reliable, safe and efficient delivery
+of electric energy on each equipment inside DORIS. The power supply of choice
+is a high density energy level military lithium ion battery model, shown in 
+figure~\ref{fig:bat}, which comes with intrinsically safety circuit in order to
+avoid possible short-circuits or heat problem, disabling the battery itself in
+cases of safety risks. The model currently in use has a 10Ah capacity, where
+four units are located on each module, weighting 1.4Kg each.
 
-\begin{equation} \label{eq:sample}
-{{\partial F}\over {\partial t}} = D{{\partial^2 F}\over {\partial x^2}}.
-\end{equation}
-
-\subsubsection{Example.} This equation goes far beyond the
-celebrated theorem ascribed to the great Pythagoras by his followers.
-
-\begin{thm}   % use the thm environment for theorems
-The square of the length of the hypotenuse of a right triangle equals
-the sum of the squares of the lengths of the other two sides.
-\end{thm}
-
-\begin{pf}    % and the pf environment for proofs
-The square of the length of the hypotenuse of a right triangle equals the sum of the squares 
-of the lengths of the other two sides.
-\end{pf}
-
-%% There are a number of predefined theorem-like environments in
-%% ifacconf.cls:
-%%
-%% \begin{thm} ... \end{thm}            % Theorem
-%% \begin{lem} ... \end{lem}            % Lemma
-%% \begin{claim} ... \end{claim}        % Claim
-%% \begin{conj} ... \end{conj}          % Conjecture
-%% \begin{cor} ... \end{cor}            % Corollary
-%% \begin{fact} ... \end{fact}          % Fact
-%% \begin{hypo} ... \end{hypo}          % Hypothesis
-%% \begin{prop} ... \end{prop}          % Proposition
-%% \begin{crit} ... \end{crit}          % Criterion
-
-Of course LaTeX manages equations through built-in macros. You may
-wish to use the \texttt{amstex} package for enhanced math
-capabilities.
-
-\subsection{Figures}
-
-To insert figures, use the \texttt{graphicx} package. Although other
-graphics packages can also be used, \texttt{graphicx} is simpler to
-use. See  Fig.~\ref{fig:bifurcation} for an example.
-
-\begin{figure}
-\begin{center}
-\includegraphics[width=8.4cm]{bifurcation}    % The printed column width is 8.4 cm.
-\caption{Bifurcation: Plot of local maxima of $x$ with damping $a$ decreasing} 
-\label{fig:bifurcation}
-\end{center}
+\begin{figure}[ht]
+\centering
+%\subfigure[Robot's operational scenario in a production plant]{%
+    \includegraphics[width=0.5\columnwidth]{figs/bateria.png}  % width is 7.6 cm.
+    \label{fig:bat}
+\caption{Military Li-on Battery Model.}\vspace{-0.25cm}
+%\label{fig:DORIS-overview}
 \end{figure}
 
-Figures must be centered, and have a caption at the bottom. 
+As Verma et al. (2004) highlight, robots often operate in environments where
+human intervention is expensive, slow, unreliable, or impossible. It is
+therefore essential to monitor their behavior so that faults may be addressed
+before they result in catastrophic failures. The power management interface is
+implemented through System Management Bus (SMBus) connections with the robot
+microprocessor, allowing the electronics to receive all possible information
+about each battery condition. As the robot is intended to work inside offshore
+platforms, which are hazardous areas, one must always consider the classified
+are zone with the highest restrictions that the robot will potentially move
+into.
 
-\subsection{Tables}
-Tables must be centered and have a caption above them, numbered with
-Arabic numerals. See table~\ref{tb:margins} for an example.
+In order to avoid avoid EMI and conductive noise interference, the project
+currently works with two separate power buses, each of these built using two
+24Vdc batteries connected in parallel, being able to deliver a capacity of
+20Ah. One bus is dedicated to power the motors and the other, to power all
+electronic equipment. Also, DC/DC converter shown in figure~\ref{fig:conv} are
+being used to create different voltage levels (12Vdc and 5Vdc) and also to
+ensure a stable power source (even for 24Vdc components). Also, diodes are
+being used in order to avoid back-flow current.
 
-\begin{table}[hb]
-\begin{center}
-\caption{Margin settings}\label{tb:margins}
-\begin{tabular}{cccc}
-Page & Top & Bottom & Left/Right \\\hline
-First & 3.5 & 2.5 & 1.5 \\
-Rest & 2.5 & 2.5 & 1.5 \\ \hline
-\end{tabular}
-\end{center}
-\end{table}
+\begin{figure}[ht]
+\centering
+%\subfigure[Robot's operational scenario in a production plant]{%
+    \includegraphics[width=1\columnwidth]{figs/Conversores.jpg}  % width is 7.6 cm.
+    \label{fig:conv}
+\caption{DC/DC Converters for 24Vdc input and 24Vdc, 12Vdc and 5Vdc outputs.}\vspace{-0.25cm}
+%\label{fig:DORIS-overview}
+\end{figure}
 
-\subsection{Final Stage}
+Also, diodes are being used in order to avoid back-flow current, fuses are
+protecting the system from undesired peaks just after each DC/DC converter and
+buttons allow the each power bus to be separately turned on/off.
 
-Authors are expected to mind the margins diligently.  Papers need to
-be stamped with event data and paginated for inclusion in the
-proceedings. If your manuscript bleeds into margins, you will be
-required to resubmit and delay the proceedings preparation in the
-process.
+For the power buses connections it is being used a stub block, like the one
+shown in figure~\ref{fig:bar}, to make all connection between batteries and the
+system, creating the the parallel connection for each bus.
 
-\subsubsection{Page margins.} See table~\ref{tb:margins} for the
-page margins specification. All dimensions are in \emph{centimeters}.
+\begin{figure}[ht]
+\centering
+%\subfigure[Robot's operational scenario in a production plant]{%
+    \includegraphics[width=0.6\columnwidth]{figs/bar2.jpg}  % width is 7.6 cm.
+    \label{fig:bar}
+\caption{Stud Bar for Parallel Connnection on the Power Buses.}\vspace{-0.25cm}
+%\label{fig:DORIS-overview}
+\end{figure}
 
+The current architecture of the power supply embedded on this project is
+illustrated on figure~\ref{fig:DiagramaSAM}. The electronics power bus in
+currently installed using 14AWG wires for up to 15A of nominal current and the
+motors power bus is currently installed using 12AWG wires for up to 21A of
+nominal current.
 
-\subsection{PDF Creation}
+\begin{figure}[ht]
+\centering
+%\subfigure[Robot's operational scenario in a production plant]{%
+    \includegraphics[angle=90,width=1\columnwidth]{figs/DiagramaSAM.jpg}  % width is 7.6 cm.
+    \label{fig:DiagramaSAM}
+\caption{Power Supply Architecture.}\vspace{-0.25cm}
+%\label{fig:DORIS-overview}
+\end{figure}
 
-All fonts must be embedded/subsetted in the PDF file. Use one of the
-following tools to produce a good quality PDF file:
+Considering this, new challenges came up in order to improve the features of
+the system.
 
-\subsubsection{PDFLaTeX} is a special version of LaTeX by Han The
-Thanh which produces PDF output directly using Type-1 fonts instead of
-the standard \texttt{dvi} file. It accepts figures in JPEG, PNG, and PDF
-formats, but not PostScript. Encapsulated PostScript figures can be
-converted to PDF with the \texttt{epstopdf} tool or with Adobe Acrobat
-Distiller.
+\subsection{Achievements}
 
-\subsubsection{Generating PDF from PostScript} is the classical way of
-producing PDF files from LaTeX. The steps are:
+To achieve a high level of robustness, two approaches are being developed in
+order to switch any battery between any of the power buses, as shown in
+figure~\ref{fig:DORIS-PCBs}: a printed circuit board, PCB, for (a) manual
+switching option will allow the operator to manually connect each battery into
+one of the buses before turning on the robot or (b) an automatic switching PCB
+option, where solid state relays commanded by the BMS system will allow the
+on-line switching of each battery if by any reason the operator thinks it would
+be best to give more power to a specific bus or even in emergency cases where a
+battery may be taken from a bus to compensate, for instance, a battery loss on
+the other bus.
 
-\begin{enumerate}
-  \item Produce a \texttt{dvi} file by running \texttt{latex} twice.
-  \item Produce a PostScript (\texttt{ps}) file with \texttt{dvips}.
-  \item Produce a PDF file with \texttt{ps2pdf} or Adobe Acrobat
-  Distiller.
-\end{enumerate}
+\begin{figure}[ht]
+\centering
+\subfigure[Manual Switch PCB]{%
+    \includegraphics[width=0.8\columnwidth]{figs/manual4.jpg}  % width is 7.6 cm.
+    \label{fig:cenario1}}
+\subfigure[Automatic Switch PCB]{%
+    \includegraphics[width=0.8\columnwidth]{figs/Top2.png}  % width is 7.6 cm.
+    \label{fig:zoom}}\vspace{-.1cm}
+\caption{Illustration of the Power Bus Switching Boards Options.}\vspace{-0.25cm}
+\label{fig:DORIS-PCBs}
+\end{figure}
 
-\subsection{Copyright Form}
+An last issue observed on this project is the fact that when going downwards
+the motor generates energy. Depending on the height of the fall and the
+velocity of DORIS, the energy created may reach voltage levels that cause the
+drivers to stop. Because of this, the group is working on ways to measure de
+energy level created and decide if it would be worth to store this energy or if
+it would be better to simply discard it by using a shunt regulator.
 
-IFAC will put in place an electronic copyright transfer system in due
-course. Please \emph{do not} send copyright forms by mail or fax. More
-information on this will be made available on IFAC website.
-
-
-\section{Units}
-
-Use SI as primary units. Other units may be used as secondary units
-(in parentheses). This applies to papers in data storage. For example,
-write ``$15\,\mathrm{Gb}/\mathrm{cm}^2$ ($100\,\mathrm{Gb}/\mathrm{in}^2$)''. 
-An exception is when
-English units are used as identifiers in trade, such as ``3.5 in
-disk drive''. Avoid combining SI and other units, such as current in
-amperes and magnetic field in oersteds. This often leads to confusion
-because equations do not balance dimensionally. If you must use mixed
-units, clearly state the units for each quantity in an equation.  The
-SI unit for magnetic field strength $\mathbf{H}$ is $\mathrm{A}/\mathrm{m}$. However, if you wish to
-use units of $\mathrm{T}$, either refer to magnetic flux density $\mathbf{B}$ or
-magnetic field strength symbolized as $\mu_0\,\mathbf{H}$. Use the center dot to
-separate compound units, e.g., ``$\mathrm{A} \cdot \mathrm{m}^2$''.
-
-\section{Helpful Hints}
-
-\subsection{Figures and Tables}
-
-Figure axis labels are often a source of confusion. Use words rather
-than symbols. As an example, write the quantity ``Magnetization'', or
-``Magnetization M'', not just ``M''. Put units in parentheses. Do not
-label axes only with units.  For example, write ``Magnetization
-($\mathrm{A}/\mathrm{m}$)'' or ``Magnetization ($\mathrm{A} \mathrm{m}^{-1}$)'', not just
- ``$\mathrm{A}/\mathrm{m}$''. Do not
-label axes with a ratio of quantities and units. For example, write
-``Temperature ($\mathrm{K}$)'', not ``$\mbox{Temperature}/\mathrm{K}$''.
-
-Multipliers can be especially confusing. Write ``Magnetization
-($\mathrm{kA}/\mathrm{m}$)'' or ``Magnetization ($10^3 \mathrm{A}/\mathrm{m}$)''. Do not write
-``Magnetization $(\mathrm{A}/\mathrm{m}) \times 1000$'' because the reader would not know
-whether the axis label means $16000\,\mathrm{A}/\mathrm{m}$ or $0.016\,\mathrm{A}/\mathrm{m}$.
-
-\subsection{References}
-
-Use Harvard style references (see at the end of this document). With
-\LaTeX, you can process an external bibliography database 
-using \texttt{bibtex},\footnote{In this case you will also need the \texttt{ifacconf.bst}
-file, which is part of the \texttt{ifaconf} package.}
-or insert it directly into the reference section. Footnotes should be avoided as
-far as possible.  Please note that the references at the end of this
-document are in the preferred referencing style. Papers that have not
-been published should be cited as ``unpublished''.  Capitalize only the
-first word in a paper title, except for proper nouns and element
-symbols.
-
-\subsection{Abbreviations and Acronyms}
-
-Define abbreviations and acronyms the first time they are used in the
-text, even after they have already been defined in the
-abstract. Abbreviations such as IFAC, SI, ac, and dc do not have to be
-defined. Abbreviations that incorporate periods should not have
-spaces: write ``C.N.R.S.'', not ``C. N. R. S.'' Do not use abbreviations
-in the title unless they are unavoidable (for example, ``IFAC'' in the
-title of this article).
-
-\subsection{Equations}
-
-Number equations consecutively with equation numbers in parentheses
-flush with the right margin, as in (\ref{eq:sample}).  To make your equations more
-compact, you may use the solidus ($/$), the $\exp$ function, or
-appropriate exponents. Use parentheses to avoid ambiguities in
-denominators. Punctuate equations when they are part of a sentence, as
-in
-
-\begin{equation} \label{eq:sample2}
-\begin{array}{ll}
-\int_0^{r_2} & F (r, \varphi ) dr d\varphi = [\sigma r_2 / (2 \mu_0 )] \\
-& \cdot \int_0^{\inf} exp(-\lambda |z_j - z_i |) \lambda^{-1} J_1 (\lambda  r_2 ) J_0 (\lambda r_i ) d\lambda 
-\end{array}
-\end{equation}
-
-Be sure that the symbols in your equation have been defined before the
-equation appears or immediately following. Italicize symbols ($T$
-might refer to temperature, but T is the unit tesla). Refer to
-``(\ref{eq:sample})'', not ``Eq. (\ref{eq:sample})'' or ``equation
-(\ref{eq:sample})'', except at the beginning of a sentence: ``Equation
-(\ref{eq:sample}) is \ldots''.
-
-\subsection{Other Recommendations}
-
-Use one space after periods and colons. Hyphenate complex modifiers:
-``zero-field-cooled magnetization''. Avoid dangling participles, such
-as, ``Using (1), the potential was calculated'' (it is not clear who or
-what used (1)). Write instead: ``The potential was calculated by using
-(1)'', or ``Using (1), we calculated the potential''.
-
-A parenthetical statement at the end of a sentence is punctuated
-outside of the closing parenthesis (like this). (A parenthetical
-sentence is punctuated within the parentheses.) Avoid contractions;
-for example, write ``do not'' instead of ``don' t''. The serial comma
-is preferred: ``A, B, and C'' instead of ``A, B and C''.
+Thus, DORIS is equipped with a power supply system with an improved robustness
+level when compared with other robotic systems and it also has a considerable
+light weight, high energy density and increased safety properties.
 
 
-\section{Conclusion}
+\section{Software architecture}\label{sec:software_overview}
 
-A conclusion section is not required. Although a conclusion may review
-the main points of the paper, do not replicate the abstract as the
-conclusion. A conclusion might elaborate on the importance of the work
-or suggest applications and extensions.
+\section{Conclusion}\label{sec:conclusions}
+ 
 
 \begin{ack}
 Place acknowledgments here.
