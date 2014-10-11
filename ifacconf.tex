@@ -455,9 +455,87 @@ distribution is based primarily on data collected via SMBUS.
 \section{Software architecture}\label{sec:software_overview}
 ESCREVER!!
 \section{Results}\label{sec:results}
-ESCREVER!!
-\section{Conclusion and Future work}\label{sec:conclusions}
-ESCREVER!!
+A DORIS prototype, Single Autonomous Module (SAM), was built
+with low cost materials for tests of all concepts above. And specific tests of
+the VSS was implemented outside the vehicle. The two subsections below detail
+the tests.
+
+\subsection{Single Autonomous Module (SAM)}
+
+The DORIS prototype, SAM (single autonomous module), was built
+with low cost materials and was tested in horizontal and vertical motion on a
+rail composed of straight and curved modules. A tubular track built using
+straight and curved segments was installed in the GSCAR laboratory, in
+COPPE/UFRJ. The track comprises all possible movements that the robot must
+make.
+
+The first objectives of (Fig.~\ref{fig:SAM}) is to test the following concepts:
+\begin{itemize}
+  \item Mechanical: the use of gimbals for guidance, stability, and weight
+  support; The traction system;
+  \item Power supply: independent buses for motors and electronics devices;
+  batteries robustness and duration;
+  \item Electronics: sensor integration; communication system;
+  \item Software: teleoperation; user interface;
+  \item Digital processing: video streaming;
+  \end{itemize}
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=8.4cm]{figs/SAM1.jpg}  % width is 7.6 cm.
+\label{fig:SAM}
+\caption{Single Autonomous Module}
+\end{center}
+\end{figure}
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=8.4cm]{figs/SAM2.jpg}  % width is 7.6 cm.
+\label{fig:SAM2}
+\caption{Single Autonomous Module}
+\end{center}
+\end{figure}
+
+%-------------------------------------------------------------------------------------------------------------------------
+%TESTES/RESULTADOS
+%-------------------------------------------------------------------------------------------------------------------------
+Initial tests performed with the prototype show good performance of the gimbals
+in terms of stability. Even though the gimbals may shake slightly due to
+irregularities on the rail surface and asymmetrical positioning of the guide
+wheels, the base keeps a steady orientation while moving.
+
+The independent buses works efficiently, and batteries were able to supply
+energy for all system. An issue observed on this project
+is the fact that when going downwards the motor generates energy. Depending on
+the height of the fall and the velocity of DORIS, the energy created may reach
+voltage levels that cause the drivers to stop.
+
+All SAM's devices: ethernet fixed camera, 3D webcam, wireless router, drivers,
+and embedded computer with SSD, were integrated with the system and communicates
+as expected. 
+
+SAM can be teleoperate from Statoil to GSCAR lab, in Rio de Janeiro, Brazil,
+with the user interface developed in Qt environment.
+
+\subsection{Vehicle Support System Tests}
+%Finally, the traction system mounted on a prismatic mechanism did not work properly. The prismatic joints locked in certain circumstances and the weight of the traction system led to loss of contact between the lower part of the grooved wheels and the tube. This results suggest investigating an alternative concept for the traction system, for example moving the traction to the gimbals wheels, as presented in Section \ref{sec:mechanics_overview}. 
+\section{Conclusion and Future work}\label{sec:conclwusions}
+
+In this paper, we presented the DORIS project, which endeavors to develop an
+offshore facilities inspection and monitoring robot. The prototype is based on
+rail guided modules powered by a battery system and equipped with multiple
+sensors that enable detection of anomalies, such as abandoned objects and gas
+leakage. 
+
+A prototype, SAM, was built to test software, mechanical,
+electronics, power supply and digital processing concepts.
+Preliminary results show good overall performance of: the guidance system using
+gimbals; sensor integration and communication; independent power buses for
+electronics and motors; teleoperation; and video streaming.
+
+The Vehicle Support System was tested outside the robot and the boards were able
+to monitor: the batteries via SMBUS, temperature/humidity, DC/DC voltage levels,
+and devices's currents. The solid-state relays can also turn on/off the devices
+for protection and/or efficiently power consumption.
 
 The future challenges are related to the expansion of DORIS EE functionalities,
 as described below:
@@ -509,17 +587,13 @@ Thus, DORIS is equipped with a power supply system with an improved robustness
 level when compared with other robotic systems and it also has a considerable
 light weight, high energy density and increased safety properties.
  
-An last issue observed on this project is the fact that when going downwards
-the motor generates energy. Depending on the height of the fall and the
-velocity of DORIS, the energy created may reach voltage levels that cause the
-drivers to stop. Because of this, the group is working on ways to measure de
-energy level created and decide if it would be worth to store this energy or if
-it would be better to simply discard it by using a shunt regulator.
- 
+% Shunt future power supply
+Because of this, the group is
+working on ways to measure de energy level created and decide if it would be
+worth to store this energy or if it would be better to simply discard it by
+using a shunt regulator.
 
-\begin{ack}
-Place acknowledgments here.
-\end{ack}
+% Motor noise LPS
 
 \bibliography{ifacconf}             
 
