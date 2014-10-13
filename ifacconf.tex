@@ -40,10 +40,10 @@ DORIS is a research project which endeavors to design and implement a mobile
 robot for remote supervision, diagnosis, and data acquisition on offshore
 facilities. The proposed system is composed of a railguided robot capable of
 carrying different sensors through the inspected area. This paper presents a
-general overview of the robot and a description of the developed software
-architecture, embedded electronics and power supply system. Initial results
-with teleoperational navigation validate the concepts considered so far and
-rise several challenges in the three fields.
+general overview of the robot and a description of the developed embedded
+electronics and power supply system. Initial results with teleoperational
+navigation validate the concepts considered so far and rise several challenges
+for future works.
 \end{abstract}
 
 \begin{keyword}
@@ -111,9 +111,9 @@ and perform interventions on valves and other equipment using an embedded manipu
 The paper is organized as follows: a general overview of the robot and its main
 challenges are presented in Section \ref{sec:general_overview}, detailed
 descriptions of the embedded electronics, power
-supply system and software architecture are taken in Sections
-\ref{sec:electronics_overview}, \ref{sec:powersupply_overview}, and
-\ref{sec:software_overview} respectively.
+supply system and the vehicle support system are taken in
+Sections \ref{sec:electronics_overview}, \ref{sec:powersupply_overview}, and
+\ref{sec:VSS} respectively.
 In Section \ref{sec:results}, preliminary results are shown, and concluding
 remarks are drawn in Section \ref{sec:conclusions}. 
 
@@ -214,21 +214,16 @@ clamping mechanism.
 %-------------------------------------------------------------------------------------------------------------------------
 %DSP
 %-------------------------------------------------------------------------------------------------------------------------
-The signal processing capabilities of the robot are \cite{cba}:
-
-\begin{itemize}
-  \item Video: use of multiple cameras (visible-light, infrared, fisheye and
-  stereo) to detect video anomalies such as abandoned objects, smoke, fire,
-  liquid leakage, and intruders.
-  \item Audio: detection of audio anomalies of impulsive nature, such as an
-  explosion or the diagnosis of rotating machines based on energy and pitch
-  (fundamental frequency) signatures using a single or a array of microphones.
-  \item Vibration analysis: Use of acceleration sensors to diagnose the
-  operation mode of rotating machines, performing possible fault
-  classification, such as misalignment and unbalancing operation.
-  \item Gas sensor: detection of gas leakages.
-  \item 3D mapping: environment 3D modeling using a laser sensor.
-\end{itemize}
+The signal processing capabilities of the robot are \cite{cba}: (a) Video: use
+of multiple cameras (visible-light, infrared, fisheye and stereo) to detect
+video anomalies such as abandoned objects, smoke, fire, liquid leakage, and
+intruders. (b) Audio: detection of audio anomalies of impulsive nature, such as
+an explosion or the diagnosis of rotating machines based on energy and pitch
+(fundamental frequency) signatures using a single or a array of microphones. (c)
+Vibration analysis: Use of acceleration sensors to diagnose the operation mode
+of rotating machines, performing possible fault classification, such as
+ misalignment and unbalancing operation. (d) Gas sensor: detection of gas
+ leakages. (e) 3D mapping: environment 3D modeling using a laser sensor.
 
 The main idea of all these signal processing features is to make the robot
 perform an initial reference lap around the closed rail track, being manually
@@ -312,7 +307,7 @@ the EE system.
 The \emph{Vehicle Support System (VSS)} composed by microcontroller based
 \emph{printed circuit boards (PCBs)} for: failure detection; device protection;
 energy distribution and monitoring; emergency handling\cite{MARIUS}. The VSS
-functionalities is detailed in section\ref{sec:VSS}.
+functionalities is detailed in section\ref{sec:VSS}. 
 
 The sensor integration system is composed by all DORIS sensors and the interface
 between devices and the computer. The subsystem enables inclusion,
@@ -320,7 +315,6 @@ reconfiguration and replacement of peripheral device. The sensor data
 integration is carried out by an high performance Intel\textregistered
 Core\texttrademark i7 computer embedded in a PCIe/104 form factor board.
   
-\newpage
 \section{Power supply system}\label{sec:powersupply_overview}
 This part of the robot is responsible for reliable, safe and efficient delivery
 of electric energy on each equipment inside DORIS. The power supply is a high
@@ -396,8 +390,10 @@ are:
   \end{itemize}
   
 DORIS VSS includes three board types: i) supervisory system
-(figure~\ref{fig:SSPCB}); ii) Battery Management System - BMS
-(figure~\ref{fig:BMSPCB}); iii) BMS Switching board~\ref{fig:BMSSB}.
+%(figure~\ref{fig:SSPCB})
+; ii) Battery Management System - BMS
+%(figure~\ref{fig:BMSPCB})
+; iii) BMS Switching board%~\ref{fig:BMSSB}.
 
 The supervisory board is composed by: two AVR micrcontrollers, solid-state
 relays (max. 1.5A), hall effect sensors (HES - for current measurements),
@@ -429,31 +425,28 @@ can be commanded from the BMS AVR in order to adequate distribute the power to
 either motor bus or electronics bus. The AVR decisions about the better
 distribution is based primarily on data collected via SMBUS.
 
-\begin{figure}
-\begin{center}
-\includegraphics[width=8.4cm]{figs/SSPCB.png}    % The printed column width is 8.4 cm.
-\caption{Supervisory system PCB: 3D illustration}
-\label{fig:SSPCB}
-\end{center}
-\end{figure}
-\begin{figure}
-\begin{center}
-\includegraphics[width=8.4cm]{figs/BMSPCB.png}    % The printed column width is 8.4 cm.
-\caption{Battery Management System PCB: 3D illustration}
-\label{fig:BMSPCB}
-\end{center}
-\end{figure}
-\begin{figure}
-\begin{center}
-\includegraphics[width=8.4cm]{figs/Top2.png}    % The printed column width is 8.4 cm.
-\caption{Illustration of the Power Bus Switching Boards Options.}
-\label{fig:BMSSB}
-\end{center}
-\end{figure}
+% \begin{figure}
+% \begin{center}
+% \includegraphics[width=8.4cm]{figs/SSPCB.png}    % The printed column width is 8.4 cm.
+% \caption{Supervisory system PCB: 3D illustration}
+% \label{fig:SSPCB}
+% \end{center}
+% \end{figure}
+% \begin{figure}
+% \begin{center}
+% \includegraphics[width=8.4cm]{figs/BMSPCB.png}    % The printed column width is 8.4 cm.
+% \caption{Battery Management System PCB: 3D illustration}
+% \label{fig:BMSPCB}
+% \end{center}
+% \end{figure}
+% \begin{figure}
+% \begin{center}
+% \includegraphics[width=8.4cm]{figs/Top2.png}    % The printed column width is 8.4 cm.
+% \caption{Illustration of the Power Bus Switching Boards Options.}
+% \label{fig:BMSSB}
+% \end{center}
+% \end{figure}
 
-
-\section{Software architecture}\label{sec:software_overview}
-ESCREVER!!
 \section{Results}\label{sec:results}
 A DORIS prototype, Single Autonomous Module (SAM), was built
 with low cost materials for tests of all concepts above. And specific tests of
@@ -469,7 +462,7 @@ straight and curved segments was installed in the GSCAR laboratory, in
 COPPE/UFRJ. The track comprises all possible movements that the robot must
 make.
 
-The first objectives of (Fig.~\ref{fig:SAM}) is to test the following concepts:
+The first objectives of (Fig.~\ref{fig:SAM2}) is to test the following concepts:
 \begin{itemize}
   \item Mechanical: the use of gimbals for guidance, stability, and weight
   support; The traction system;
@@ -478,15 +471,15 @@ The first objectives of (Fig.~\ref{fig:SAM}) is to test the following concepts:
   \item Electronics: sensor integration; communication system;
   \item Software: teleoperation; user interface;
   \item Digital processing: video streaming;
-  \end{itemize}
+  \end{itemize} 
 
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=8.4cm]{figs/SAM1.jpg}  % width is 7.6 cm.
-\label{fig:SAM}
-\caption{Single Autonomous Module}
-\end{center}
-\end{figure}
+% \begin{figure}[!h]
+% \begin{center}
+% \includegraphics[width=8.4cm]{figs/SAM1.jpg}  % width is 7.6 cm.
+% \label{fig:SAM}
+% \caption{Single Autonomous Module}
+% \end{center}
+% \end{figure}
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=8.4cm]{figs/SAM2.jpg}  % width is 7.6 cm.
@@ -518,7 +511,7 @@ with the user interface developed in Qt environment.
 
 \subsection{Vehicle Support System Tests}
 %Finally, the traction system mounted on a prismatic mechanism did not work properly. The prismatic joints locked in certain circumstances and the weight of the traction system led to loss of contact between the lower part of the grooved wheels and the tube. This results suggest investigating an alternative concept for the traction system, for example moving the traction to the gimbals wheels, as presented in Section \ref{sec:mechanics_overview}. 
-\section{Conclusion and Future work}\label{sec:conclwusions}
+\section{Conclusion and Future work}\label{sec:conclusions}
 
 In this paper, we presented the DORIS project, which endeavors to develop an
 offshore facilities inspection and monitoring robot. The prototype is based on
@@ -526,79 +519,70 @@ rail guided modules powered by a battery system and equipped with multiple
 sensors that enable detection of anomalies, such as abandoned objects and gas
 leakage. 
 
-A prototype, SAM, was built to test software, mechanical,
-electronics, power supply and digital processing concepts.
+A prototype, SAM, was built to test mechanics, electronics, power
+supply, software architecture, and digital processing concepts.
 Preliminary results show good overall performance of: the guidance system using
 gimbals; sensor integration and communication; independent power buses for
 electronics and motors; teleoperation; and video streaming.
 
-The Vehicle Support System was tested outside the robot and the boards were able
-to monitor: the batteries via SMBUS, temperature/humidity, DC/DC voltage levels,
-and devices's currents. The solid-state relays can also turn on/off the devices
-for protection and/or efficiently power consumption.
+%Thus, DORIS is equipped with a power supply system with an improved robustness
+%level when compared with other robotic systems and it also has a considerable
+%light weight, high energy density and increased safety properties.
 
-The future challenges are related to the expansion of DORIS EE functionalities,
+The Vehicle Support System was tested outside the robot and the customized
+printed circuit boards were able to monitor: the batteries via SMBUS,
+temperature/humidity, DC/DC voltage levels, and devices's currents. The
+solid-state relays can also turn on/off the devices for protection and/or
+efficiently power consumption.
+
+The future challenges are related to the expansion of DORIS functionalities,
 as described below:
 \begin{enumerate}[i)]
   \item \emph{Expansion and reconfiguration of robot modules}:\\
   \newline
   DORIS will need more than one module to support more devices and features.
-  The EE system should permit the free expansion and reconfiguration of DORIS
-  modules. This can be achieved by the introduction of a bus topology for DORIS
-  main networks: Ethernet and CAN. These two communications should be the only
-  possibilities for an interface between modules in order to simplify the
-  mechanical design for external connections.\\
-  \item \emph{Two dedicated computers}:\\
-  \newline
-  With multiple modules, it is easy to place at least two computers within
-  DORIS. It may be interesting to introduce two dedicated computers:  one for
-  data processing and another one for navigation and mission control.\\
+  The EE system permits the free expansion and reconfiguration of DORIS
+  modules, achieved by the introduction of a bus topology for DORIS
+  main networks: Ethernet and CAN. However, the junction between wagons is a
+  mechanical challenge and is the next step for the mechanics' group.\\
   \item \emph{Autonomous operation}:\\
   \newline
-  One of the next DORIS goals is to implement the autonomous operation mode. It
-  is a challenge for the software development, since the EE system already has
-  the computation support for this.\\
+  DORIS autonomous operation is a challenge for the software development. The
+  Positioning System, comprising wheels' encoder (odometry) and
+  fixed camera (3D mapping), will be upgraded with an inertial movement unit
+  (IMU) and a laser scanner. The sensor's fusion will precise the Navigation
+  System, which estimates the linear position and velocity of the vehicle. Also,
+  a Mission Control System need to be developed for the operator.
+  \\
   \item \emph{Manipulator control}:\\
   \newline
   It is planned the inclusion of a robotic manipulator fixed at the module
-  bottom. Its main functionalities include:
-  \begin{itemize}
-    \item Handling of a vibration sensor at the grip. This should extend the
-    reach of this sensor, which should be positioned in contact with the
-    equipment which vibration should be measured. In addition, the transmitted
-    vibration from the sensor to the robot base should be dumped due to the
-    motion compliance of the manipulator joints and links.
-    \item Handling of a 3D camera at the grip. This should extend the camera
-    viewing range and offer new and strategic points of view if compared to the
-    other cameras.
-  \end{itemize}
+  bottom. It is going to handle a vibration sensor and a 3D camera at the grip.
   Besides the prismatic movement of the robot along the rail, the manipulator
   may need more 4 degrees of freedom, excluding the \emph{roll orientation}.
   Since it is actuated by electric motors just like the traction system, it
-  should be controlled via CAN bus.\\
+  will be controlled via CAN bus.\\
   \item \emph{Reduced interferences, such as Electromagnetic interference (EMI) and electrostatic charge}:\\
   \newline
   Future DORIS improvements should include a well designed/installation of the
   shield network and earthing system to reduce EMI. An electrostatic discharger
   should be designed to drain the accumulated charge from the shielding system.
+  \item \emph{DORIS's downward motion}
+  \newline
+  An issue observed on power supply system is the fact that when going downwards
+  the motor generates energy. Depending on the height of the fall and the velocity
+  of DORIS, the energy created may reach voltage levels that cause the drivers
+  to stop. Because of this, the group is working on ways to measure de energy
+  level created and decide if it would be worth to store this energy or if it
+  would be better to simply discard it by using a shunt regulator.
+  \item \emph{Motors' noises}
+  \newline
+  The digital processing is working on an audio filter for the DORIS motors,
+  which generates a lot of noise when working at higher speeds.
 \end{enumerate}
-
-Thus, DORIS is equipped with a power supply system with an improved robustness
-level when compared with other robotic systems and it also has a considerable
-light weight, high energy density and increased safety properties.
- 
-% Shunt future power supply
-Because of this, the group is
-working on ways to measure de energy level created and decide if it would be
-worth to store this energy or if it would be better to simply discard it by
-using a shunt regulator.
-
-% Motor noise LPS
 
 \bibliography{ifacconf}             
 
 \appendix
-\section{A summary of Latin grammar}    % Each appendix must have a short title.
-\section{Some Latin vocabulary}              % Sections and subsections are supported  
-                                                                         % in the appendices.
+ 
 \end{document}
