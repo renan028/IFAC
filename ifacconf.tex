@@ -40,10 +40,10 @@ DORIS is a research project which endeavors to design and implement a mobile
 robot for remote supervision, diagnosis, and data acquisition on offshore
 facilities. The proposed system is composed of a railguided robot capable of
 carrying different sensors through the inspected area. This paper presents a
-general overview of the robot and a description of the developed embedded
-electronics and power supply system. Initial results with teleoperational
-navigation validate the concepts considered so far and rise several challenges
-for future works.
+general overview of the robot, a description of the developed embedded
+electronics, power supply system and software architecture. Initial results
+with teleoperational navigation validate the concepts considered so far and
+rise several challenges for future works.
 \end{abstract}
 
 \begin{keyword}
@@ -63,19 +63,20 @@ During the last decade, several Oil \& Gas companies, research groups, and
 academic communities have shown an increasing interest in the use of robots for
 operation on offshore facilities.  
 
-Recent studies project a substantial decrease in the level of human operation
+Recent studies forecast a substantial decrease in the level of human operation
 and an increase in automation on future offshore oil fields
 ~\cite{skourup2009robotized}.The studies also point out the potential increase
 in efficiency and productivity with robot operators, besides the improvement of
 Health, Safety, and Environment (HSE) conditions, as robots can replace humans
 in tasks performed in unhealthy, hazardous, and confined areas ~\cite{pal}. 
-In~\cite{abb}, it is considered the use of robots in Oil \& Gas facilities in
-operations that require both high precision and strength, regardless of weather conditions.
+In~\cite{abb}, it is considered the use of robots in Oil \& Gas offshore
+facilities in operations that require both high precision and strength,
+regardless of weather conditions.
 
 In the specific case of Brazil, the Oil \& Gas industry is growing at a high
 pace, mainly due to the recent discoveries of big oil fields in the pre-salt
 layer off the Brazilian coast. These oil reservoirs are located farther than
-300 km from the shore and at depths of 5000 to 7000 km. These factors,
+300 km from the shore at depths of 5000 to 7000 km. These factors,
 especially the large distances, motivate the development of an offshore
 production system with a high degree of automation based on advanced robotics
 systems.
