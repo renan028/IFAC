@@ -261,7 +261,7 @@ online information of sensors data. Finally, the robot must have a modular and
 flexible design, employing plug and play extensions.
 
 
-\section{Embedded Electonics}\label{sec:electronics_overview}
+\section{Embedded Electronics}\label{sec:electronics_overview}
 The embedded electronics (EE) is composed of the following subsystems:
 communication system, actuator control system, vehicle support system, and
 sensor integration system. 
@@ -511,7 +511,42 @@ SAM can be teleoperate from Statoil to GSCAR lab, in Rio de Janeiro, Brazil,
 with the user interface developed in Qt environment.
 
 \subsection{Vehicle Support System Tests}
-%Finally, the traction system mounted on a prismatic mechanism did not work properly. The prismatic joints locked in certain circumstances and the weight of the traction system led to loss of contact between the lower part of the grooved wheels and the tube. This results suggest investigating an alternative concept for the traction system, for example moving the traction to the gimbals wheels, as presented in Section \ref{sec:mechanics_overview}. 
+All DORIS VSS functions were successfully tested independently. For these
+tests, it was used a test PCB (similar to the designed for the final prototype)
+and a RS485 interface with a laptop to emulate the USART communication. The AVR
+microcontroller, which commands all the PCB functionalities, were programmed in
+C++ using Atmel Studio 6.1. The following tests/implementations were
+successfully performed:
+
+\begin{enumerate}[i)]
+
+\item Logic for commanding the \emph{solid-state relays} for device on/off: the
+relays can be opened/closed via RS485 commands from the laptop.
+
+\item Acquisition of \emph{module voltages}: DC-DC voltage measurements (5, 12
+and 24VDC) and battery raw voltage measurement (that does not pass through any
+DC-DC) can be read via RS485 commands from the laptop. The voltage is measured
+using the AVR embedded AD converter.
+
+\item Acquisition of \emph{module currents}: the measurement of currents that
+supply each device module can be read via RS485 commands from the laptop. The
+currents are measured using hall-effect sensors. The microcontroller embedded
+AD converter does not comport enough measuring port, thus an external one is
+used to digitize the current measurements.
+
+\item Acquisition of \emph{module humidity/temperature}: the measurements of
+the module humidity and temperature can be read via RS485 commands from the
+laptop. A specific T/H sensor is used for this acquisition.
+
+\item Acquisition of \emph{battery information}: many battery information, such
+as voltages, temperature, currents, remaining charge, and battery status, can
+be read via RS485 commands from the laptop. The acquisition of all battery data
+is implemented using SMBUS communication.
+
+\end{enumerate}
+
+
+
 \section{Conclusion and Future work}\label{sec:conclusions}
 
 In this paper, we presented the DORIS project, which endeavors to develop an
@@ -580,6 +615,14 @@ as described below:
   \newline
   The digital processing is working on an audio filter for the DORIS motors,
   which generates a lot of noise when working at higher speeds.
+  \item \emph{Vehicle Support System}
+  \newline
+  Functions to be implemented in VSS: control of BMS high-power
+  relays to permit the management of DORIS energy power distribution;
+  The logic that uses the data from SMBUS to efficiently manage DORIS's energy
+  distribution; Robot shutdown in predetermined time; Periodic data
+  report of voltages, currents, relays’ status, and module's humidity and
+  temperature.
 \end{enumerate}
 
 \bibliography{ifacconf}             
