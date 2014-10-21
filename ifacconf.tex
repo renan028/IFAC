@@ -14,13 +14,13 @@
 \begin{frontmatter}
 
 \title{THE EMBEDDED ELECTRONICS SYSTEM OF DORIS: A MOBILE ROBOT FOR INSPECTION AND MONITORING OF
-OFFSHORE FACILITIES\thanksref{footnoteinfo}} 
-% Title, preferably not more than 10 words. 
+OFFSHORE FACILITIES\thanksref{footnoteinfo}}
+% Title, preferably not more than 10 words.
 
 \thanks[footnoteinfo]{This work is supported primarily by Petrobras S.A. and
 Statoil Brazil Oil \& Gas Ltda under contract COPPETEC 0050.0079406.12.9
 (ANP-Brazil R \& D Program), and in part by the Brazilian research agencies CNPq
-and FAPERJ} 
+and FAPERJ}
 
 \author[1]{Ramon R. Costa}
 \author[1]{Renan S. Freitas}
@@ -31,22 +31,33 @@ and FAPERJ}
 \author[1]{Guilherme P. S. Carvalho}
 \author[1]{Liu Hsu}
 \author[1]{Eduardo V. L. Nunes}
-\author[1]{Fernando Lizarralde}
 \author[1]{Alessandro J. Peixoto}
+\author[1]{Fernando Lizarralde}
+\author[4]{P{\aa}l From}
 \author[1]{Gustavo Freitas}
 \author[1]{Eduardo A. B. da Silva}
 \author[1]{Sergio L. Neto}
 \author[2]{Maur{\'i}cio Galassi}
-\author[4]{P{\aa}l From}
 \author[3]{Anders R{\o}yr{\o}y}
 
+
+% Opção 1 de filiação sem email
+%  \address[1]{Electrical
+% Engineering Department, COPPE UFRJ, Rio de Janeiro, Brazil }
+% \address[2]{Research and Development Center, Petrobras/CENPES,
+% Rio de Janeiro, Brazil }
+% \address[3]{TPD RD New Development Solutions, Statoil ASA, Bergen, Norway }
+%\address[4]{Mathematical Sciences and Technology Department, Norwegian
+%University of Life Sciences, Oslo, Norway }
+
+%% Opção 2 de filiação com email
   \address[1]{Electrical
- Engineering Department, COPPE UFRJ, Rio de Janeiro, Brazil}
+ Engineering Department, COPPE UFRJ, Rio de Janeiro, Brazil (renan028@poli.ufrj.br, marco.fernandes@poli.ufrj.br, imtz@poli.ufrj.br, alexfneves@poli.ufrj.br, rafael.o.faria@gmail.com, guilherme\_carvalho@poli.ufrj.br,\{liu,eduardo,jacoud,fernando,gfreitas,ramon\}@coep.ufrj.br, \{eduardo,sergioln\}@smt.ufrj.br)}
  \address[2]{Research and Development Center, Petrobras/CENPES,
- Rio de Janeiro, Brazil}
- \address[3]{TPD RD New Development Solutions, Statoil ASA}
+ Rio de Janeiro, Brazil (mauricio.galassi@petrobras.com.br)}
+ \address[3]{TPD RD New Development Solutions, Statoil ASA, Bergen, Norway (aroy@statoil.com)}
 \address[4]{Mathematical Sciences and Technology Department, Norwegian
-University of Life Sciences, Oslo, Norwegian }
+University of Life Sciences, Oslo, Norway (pafr@umb.no)}
 
 \begin{abstract}                % Abstract of not more than 250 words.
 DORIS is a research project which endeavors to design and implement a mobile
@@ -74,13 +85,13 @@ cost. In order to be competitive and to improve their profit, oil \& gas
 companies are looking for new technologies to reduce the labor costs. The use
 of robotics in inspection maintenance and repair operations in oil \& gas
 facilities could greatly improve efficiency, health and safety, while
-decreasing operational and logistics costs.  
+decreasing operational and logistics costs.
 
 In the specific case of Brazil, the Oil \& Gas industry is growing at a high
 pace. The recent discoveries of big oil fields in the pre-salt layer off the
 Brazilian coast, located 300 km from the shore at depths of 5000 to 7000 km,
 motivates the development of an offshore  production system with a high degree
-of automation based on advanced robotics systems (\cite{presal}). 
+of automation based on advanced robotics systems (\cite{presal}).
 
 The work conditions on offshore
 installations such as unfriendly atmosphere, unsheltered environment, heavy
@@ -93,13 +104,13 @@ are serious financial obstacles for oil \& gas companies.
 
 Recent studies forecast a substantial decrease in the level of human operation
 and an increase in automation on future offshore oil fields
-(\cite{skourup2009robotized}).The studies also point out the potential increase
-in efficiency and productivity with robot operators. Besides the improvement in
+(\cite{skourup2009robotized}). The studies also point out the potential increase
+in efficiency and productivity with robot operators. Besides of the improvement in
 Health, Safety, and Environment (HSE) conditions, as robots can replace humans
-in tasks performed in unhealthy, hazardous, and confined areas ~\cite{pal}.
+in tasks performed in unhealthy, hazardous, and confined areas (\cite{pal}).
 
 \cite{chen} investigates the challenges of robotics and automation in oil
-\& gas industry and list the most important requirements for robotic systems
+\& gas industry and lists the most important requirements for robotic systems
 are:
 \begin{itemize}
 \item The atmospheric conditions on offshore platforms are quite unfriendly. The
@@ -109,24 +120,28 @@ robot should be certified to operate in explosive environments.
 chemicals.
 \item Weather: wind with high speed, squalls, rain and hail. The
 significant variations on ambient temperature and relative humidity are up to
-100\%. Possibly highly radiant heat from process equipment and direct sunlight. 
+100\%. Possibly highly radiant heat from process equipment and direct sunlight.
 \item Constrained space and/or walkways. Complex structures such as pipes,
 flanges, tanks, and stairways.
 \end{itemize}
 
-There are different kinds of robots in the oil \& gas industry such as
-underwater pipeline repair robotic systems, robots for inpection of valve and
+%There are different kinds of robots in the oil \& gas industry such as
+%underwater pipeline repair robotic systems, robots for inspection of valve and
+%lever position, gas level or leakage and acoustic anomalies monitoring, and
+%robots for identify and locate fire.
+
+Currently, the majority of robotic systems used in the Oil \& Gas industry are used for subsea tasks, such as mapping of the seabed, and inspection and repair of underwater equipment, risers and pipelines. However, recent research has focused on robotic applications on the topside of platforms to perform tasks such as inspection of valve and
 lever position, gas level or leakage and acoustic anomalies monitoring, and
-robots for identify and locate fire. 
+robots for identify and locate fire.
 
 The MIMROex inspection robot (\cite{mimroex}) was developed and
 tested by the Fraunhofer Institute of Manufacturing Engineering and Automation
 (IPA). The robot is capable of safe navigation in offshore environments, and
 autonomous execution of inspection tasks.
 
-The Carnegie Mellon University inspection robot, Sensabot (\cite{sensabot}), was
+The Carnegie Mellon University inspection robot Sensabot (\cite{sensabot}) was
 designed for severe weather and unfriendly atmosphere with corrosive, toxic and explosive
-gasses. The robot includes the following sensors: (i) hydro carbon sensor; (ii)
+gases, being certified to operate in toxic, flammable and explosive environments. The robot includes the following sensors: (i) hydro carbon sensor; (ii)
 pan/tilt/zoom camera for remote operations; (iii) temperature sensors; (iv)
 vibration sensor for pumps, motors and bearings inspection; (v) microphone to
 detect audible machinery problems; (vi) video camera to detect obstacles.
@@ -134,7 +149,7 @@ detect audible machinery problems; (vi) video camera to detect obstacles.
 The SINTEF Topside Robotic System, developed in the robotic lab facility in
 Trondheim, is an intelligent instrumentation system to enable onshore operators
 to monitor and control all of the platform's processes
-(\cite{kyrkjebo2009robotic}). 
+(\cite{kyrkjebo2009robotic}).
 
 In this paper, we describe the DORIS project, which aims to develop a mobile
 robot to perform monitoring and inspection in an
@@ -172,21 +187,18 @@ mode (real-time remote operation). The teleoperation and monitoring
 capabilities guarantee online access to the embedded sensors, providing
 information about the surrounding environment and the robot operating
 conditions with real-time processing. Figure~\ref{fig:DORIS-overview}
-illustrates the operation in a production plant. 
-% Zeka: escrever mais sobre a figura (manipulador com sensor de vibração).
-% Gustavo: não escrever sobre o manipulador. 
+illustrates the operation in a production plant.
+
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=8.4cm]{figs/zoom.jpg} 
-\caption{Illustration of the DORIS robot operating in a production plant} 
+\includegraphics[width=8.4cm]{figs/zoom.jpg}
+\caption{Illustration of the DORIS robot operating in a production plant}
 \label{fig:DORIS-overview}
 \end{figure}
 
 The DORIS project can be divided into five subsystems: electronics, power
-supply, software, mechanics and signal processing. The mechanical and signal
-processing systems were detailed in \cite{OTC} and
-\cite{cba}.
+supply, software, mechanics and signal processing.
 
 %-------------------------------------------------------------------------------------------------------------------------
 %ELECTRONICS
@@ -218,7 +230,7 @@ processing systems were detailed in \cite{OTC} and
 % led to the adoption of Qt as the graphical interface framework ~\cite{qt},
 % Robot Operating System (ROS) as the communication middleware ~\cite{ros}, and
 % Ubuntu as the operating system.
-% 
+%
 % The software provides autonomous control (programmed tasks) and remote control
 % through a Graphical User Interface (GUI) in the Host Control Base (HCB)
 % computer. The HCB is composed of a set of processes running in parallel
@@ -242,8 +254,7 @@ conceived to be augmented with additional modules. The total weight
 of this basic configuration is estimated at 50 kg. The speed of DORIS is expected to reach 1m/s.
 
 The design incorporates the use of gimbals with wheels as guides for
-the module on the rail. The use of gimbals provides mechanical compliance in
-rail curvatures.
+the module on the rail. The use of two sets of gimbals provide mechanical compliance with rail curvatures, smoothness of the robot's base movement, and good weight distribution.
 
 %-------------------------------------------------------------------------------------------------------------------------
 %DSP
@@ -267,6 +278,8 @@ any form of anomaly, as indicated above. Once an anomalous behavior is
 detected, an alarm is flagged to the system, which stores all associated data
 for immediate or future diagnosis.
 
+A more detailed presentation of the mechanical and signal processing systems can be found in \cite{OTC} and
+\cite{cba}.
 
 %-------------------------------------------------------------------------------------------------------------------------
 %OTHER CHALLENGES
@@ -281,7 +294,6 @@ Concerning robustness and safety required to operate in classified areas, the
 robot must be sealed against water and objects, resistant to a wide temperature
 range, protected from impact and vibration, electrically shielded to avoid
 explosion by ignition, and equipped with a monitoring system.
-
 
 Another challenge is that the embedded computers must run heavy signal
 processing algorithms, requiring high computational power. However, the power
@@ -326,10 +338,10 @@ amount of conductive noise, a galvanic opto-isolator is used between the CAN and
 computer to minimize interference on the rest of the EE system.
 % Gustavo: Falar do Watchdog do alex
 
-The sensor integration system is composed by all DORIS sensors and the interface
+The sensor integration system is composed of all DORIS sensors and the interface
 between devices and the computer. The subsystem enables inclusion,
 reconfiguration and replacement of peripheral devices. The sensor data
-integration is carried out by an high performance Intel\textregistered
+integration is carried out by a high performance Intel\textregistered
 Core\texttrademark i7 computer embedded in a PCIe/104 form factor board.
 
 An overall scheme of DORIS EE system is shown in
@@ -337,7 +349,7 @@ figure~\ref{fig:EE-Communications}.
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=8.4cm]{figs/EE-Communications.pdf}   
+\includegraphics[width=8.4cm]{figs/EE-Communications.pdf}
 \caption{DORIS embedded Electronics system: overall scheme}
 \label{fig:EE-Communications}
 \end{center}
@@ -346,7 +358,7 @@ figure~\ref{fig:EE-Communications}.
 \subsection{Vehicle Support System}\label{sec:VSS}
 
 The \emph{Vehicle Support System (VSS)} (\cite{MARIUS}) is composed of
-microcontroller based \emph{printed circuit boards} (PCBs) for: failure detection; device protection;
+microcontroller based PCBs for: failure detection; device protection;
 energy distribution and monitoring; emergency handling. The VSS is designed for:
 
 \begin{itemize}
@@ -375,8 +387,8 @@ DORIS VSS includes three types of PCBs: i) supervisory system
 ; iii) BMS Switching board%~\ref{fig:BMSSB}.
 
 The supervisory system is mainly responsible for monitoring devices' current
-and voltage supply, and for protecting them. It is composed of AVR
-micrcontrollers, solid-state relays (max. 1.5 A), hall effect sensors (for
+and voltage supply, and for protecting them. It is composed of AT90CAN AVR
+microcontrollers, solid-state relays (max. 1.5 A), hall effect sensors (for
 current measurements), 16-channels analog-to-digital converter,
 humidity/temperature (H/T) sensor, and an Ethernet-to-UART converter.
 
@@ -386,7 +398,7 @@ using an specific I$^{2}$C T/H sensor; iii) devices' supply currents, using
 hall-effect sensors and an external ADC for data interpretation.
 Then, the AVR manages the collected data in order to periodically report
 it to DORIS computers (via Ethernet), and locally detect and react to faulty
-situations. Since Ethernet is not an available interface in the AT90CAN AVR
+situations. Since Ethernet is not an available interface in this AVR
 model, an USART-to-Ethernet converter is used for data communication. The local fault
 detection is performed by pre-programmed algorithms in the AVR, which can react
 in order to protect devices against overcurrent. This is achieved by commanding
@@ -437,10 +449,9 @@ ensure a stable power source (even for 24 Vdc components).
 
 To achieve power protection, diodes are used to avoid back-flow
 current, fuses protect the system from undesired peaks and buttons allow power
-buses to be separately turned on/off. 
+buses to be separately turned on/off.
 
-The power supply architecture of the power supply embedded on this project is
-illustrated on figure~\ref{fig:DiagramaSAM}. The electronics' power bus uses
+The power supply architecture is illustrated on figure~\ref{fig:DiagramaSAM}. The electronics' power bus uses
 14 AWG wires for up to 15 A of nominal current and the motors' uses
 12 AWG wires for up to 21 A of nominal current.
 
@@ -449,19 +460,19 @@ capacitor to correct a delay between current and voltage as there will
 be no natural frequency. However, a capacitor bank would allow additional
 energy to the motors. If the source energy is a
 battery, then the capacitor bank must have at least 400 to 500 $\mu F$ for each
-Ampere (\cite{capacitor}). In our case, as each motor may require a peak current
+Ampere (\cite{capacitor}). In the case of DORIS, as each motor may require a peak current
 of 20 A, a capacitor bank dedicated for each driver would need to have between 8000 and
 10000 $\mu F$, and the use of small capacitors in parallel would be an option.
 It is also recommended to have the maximum operating voltage of the capacitor
-bank at around 50\%, ie, 35 V the battery voltage is 24 V. In
-this case, one must use electrolytic capacitors, other types of
+bank at around 50\%, ie, 35 V since the battery voltage is 24 V. In
+this case, one must use electrolytic capacitors, as other types of
 capacitors are not able to provide this capacitance value at this voltage.
-The capacitor should have low ESR and it should be located as
+The capacitor should have low equivalent series resistance and it should be located as
 close to the noise source, namely the motors.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=1\columnwidth]{figs/DiagramaSAM.jpg} 
+\includegraphics[width=1\columnwidth]{figs/DiagramaSAM.jpg}
 \caption{DORIS power Supply Architecture.}
  \label{fig:DiagramaSAM}
 \end{figure}
@@ -492,15 +503,32 @@ package, DORIS Package, is proposed to deal with Doris hardware and
 functionalities. DORIS Package is a library (libDORISPackage.so) containing a
 list of components and tools for the DORIS robot.
 
-A robot system 3D model based on URDF format from ROS. The 3D model which
-include the rail and the robot system is integrated in the GUI and can be
+A robot system 3D model based on URDF format from ROS is
+presented in figure~\ref{fig:rviz}.
+The 3D model which include the rail and the robot system is integrated in the GUI and can be
 visualized using RVIZ (a ROS tool).  Thus, the robot motion can be visualized
 in the GUI and the operator can even control the robot in the 3D environment,
 pointing a desided configuration.
 
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8.4cm]{figs/rviz.png}
+\caption{Robot system 3D model}
+\label{fig:rviz}
+\end{figure}
+
 A Web tool is also proposed to remotly control DORIS using an standard internet
-browser with javascript support. The webtool is based on rosbridge and
-javascript libraries roslibjs, ros2js and ros3djs.
+browser with javascript support (figure~\ref{fig:teleop}). The webtool is based
+on rosbridge and javascript libraries roslibjs, ros2js and ros3djs.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8.4cm]{figs/teleop.jpg}
+\caption{Web tool to remotly control DORIS using an standard internet
+browser}
+\label{fig:teleop}
+\end{figure}
+
 
 \section{Experimental tests and results}\label{sec:results}
 A DORIS prototype named \emph{Single Autonomous Module} (SAM) was built for
@@ -518,7 +546,7 @@ all possible movements that the robot must make, and was installed in the
 GSCAR laboratory, in COPPE/UFRJ. The robot was able to fully move throughout
 the entire track.
 
-The first objectives of SAM test the following concepts:
+The first objectives of SAM are to test the following concepts:
 \begin{itemize}
   \item Power supply: independent buses for motors and electronics devices;
   batteries robustness and duration;
@@ -528,17 +556,16 @@ The first objectives of SAM test the following concepts:
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=8.4cm]{figs/SAM3.jpg}  
+\includegraphics[width=8.4cm]{figs/SAM4.jpg}
 \caption{Single Autonomous Module}
 \label{fig:SAM2}
 \end{figure}
 
-% Revisar
 The concept of independent power buses proved to be efficient, and the designed
 battery capacity could handle the system energy demand. However, it was
 observed that when SAM moves downwards, the motor rotates on the opposite
 direction and through that energy is regenerated on the way back to the source.
-Depending on the fall height and on the robot velocity, this energy may reach a
+Depending on the length of the downwards section and the robot velocity, this energy may reach a
 voltage level that causes the motor drivers to reset, where this issue must
 have further studies in order to investigate if it would be more worth to store
 this extra energy or to simply waste it using an addicional device to burn it.
@@ -556,8 +583,8 @@ Janeiro) and from Statoil headquarters (Norway).
 
 \subsection{Vehicle Support System Tests}
 All DORIS VSS functions were successfully tested independently. For these
-tests, It was used a test PCB (similar to the designed for the final
-prototype) and a RS485 interface with a laptop to emulate the USART
+tests, it was used a test PCB (similar to the designed for the final
+prototype) and a RS485 interface with a notebook to emulate the USART
 communication. The AVR firmware was programmed in C++ using Atmel Studio 6.1.
 The following tests/implementations were successfully performed:
 \begin{enumerate}[i)]
@@ -578,21 +605,21 @@ notebook. A specific T/H sensor is used for this acquisition.
 \item Acquisition of \emph{battery information}: voltages, temperature,
 currents, remaining charge, and battery status, can be read via RS485 commands
 from the notebook. The acquisition of all battery data is implemented using
-SMBUS communication.
+SMBUS communication.   
 \end{enumerate}
 
-Future include: replace RS485 by USART to allow communication with
+Future work include: replace RS485 by USART to allow communication with
 the PCs via Ethernet network; implement in AVR the control of BMS high-power
 relays to allow the management of DORIS energy power distribution; implement
 the logic that uses the data read from SMBUS to manage DORIS energy
-distribution. Additionally, timers will be implemented to : robot
+distribution. Additionally, timers will be implemented to enable: robot
 shutdown in predetermined time; periodic data report of voltages,
 currents, relaysâ€™ status, and module humidity and temperature.
 
 
 \section{Conclusion and Future work}\label{sec:conclusions}
 
-In this paper, we presented the Embedded Electronics subsystem of the DORIS
+In this paper, we presented the embedded electronics subsystem of the DORIS
 project, which endeavors to develop an offshore facilities inspection and monitoring robot. The prototype is based on
 rail guided modules powered by a battery system and equipped with multiple
 sensors that enable the detection of anomalies, such as abandoned objects and
@@ -623,12 +650,10 @@ Ongoing implementations and future challenges include:
   DORIS autonomous operation is a challenge for the software development. The
   Positioning System, comprising wheels' encoders (odometry) and
   fixed camera (3D mapping), will be upgraded with an inertial movement unit
-  (IMU). The sensor's fusion will precise the Navigation
-  System, which estimates the vehicle pose (position, orientation and velocity).
+  (IMU) and the detection of rail landmarks, such as rail supports and segments connections. The fusion of these sensors measurements will estimate the vehicle states, such as position, attitude and velocity.
   %Melhorar isso ai
   %Also, a Mission Control System need to be developed for the operator.\\
-
-
+\newline	
   \item \emph{Reduced interferences, such as electromagnetic interference (EMI)
   and electrostatic charge}:\\
   \newline
@@ -644,13 +669,13 @@ Ongoing implementations and future challenges include:
   voltage issue. It represents a solution, but wastes this energy, while a
   big capacitor bank could be used as an energy storage device. Tests are going
   to be performed so that the amount of energy generated may be measured in
-  order to decide if it would be worth to embeb a device to recover this
+  order to decide if it would be worth to embed a device to recover this
   energy or if it would be better just to let it be wasted.
   \newline
   \item \emph{Hardware Certification}\\
   \newline
   The robot must be certified to operate in corrosive environments and explosive
-  atmospheres. 
+  atmospheres.
 \end{enumerate}
 
 \bibliography{ifacconf}
