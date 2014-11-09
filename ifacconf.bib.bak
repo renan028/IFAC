@@ -76,24 +76,10 @@
   publisher={Taylor \& Francis}
 }
 
-@misc{wna_old,
+@misc{wna,
  title = {Uranium, Electricity and Climate Change. http://www.world-nuclear.org/info/Energy-and-Environment/Uranium-Electricity-and-Climate-Change . {A}ccessed on {O}ctober 20$^{th}$, 2014},
  author={World-nuclear},
  year={2014},
-}
-
-@misc{wna,
- title = {Uranium, Electricity and Climate Change},
- author={World-nuclear},
- howpublished={World Nuclear Association website. http://www.world-nuclear.org/info/Energy-and-Environment/Uranium-Electricity-and-Climate-Change {A}ccessed on {O}ctober 20$^{th}$, 2014},
- year={2012},
-}
-
-@misc{can,
- title = {Introduction to the Controller Area Network ({CAN})},
- author={Steve Corrigan},
- howpublished={Texas Instrument Application Report SLOA101A. http://www.ti.com/lit/an/sloa101a /sloa101a.pdf {A}ccessed on {O}ctober 20$^{th}$, 2014},
- year={2008}
 }
 
 @article{OTC,
@@ -125,7 +111,7 @@ publisher={IEEE}
 
 @misc{qt,
  author = {Qt-Project},
- title = {Qt online documentation. http://qt-project.org/ {A}ccessed on {O}ctober 20$^{th}$, 2014},
+ title = {Qt online documentation. http://qt-project.org/ . {A}ccessed on {O}ctober 20$^{th}$, 2014},
  year={2014}
 }
 
@@ -137,30 +123,29 @@ publisher={IEEE}
 }
 
 @misc{presal,
- title = {Os Desafios do Pr{\'e}-Sal},
+ title = {Os Desafios do Pr{\'e}-Sal. {A}ccessed on {O}ctober 20$^{th}$, 2014},
  author = {Fernando Ferro and Paulo Teixeira},
- howpublished={C\^{a}mara dos Deputados, Edi\c{c}\~{o}es C\^{a}mara. http://www2.camara.leg.br/a-camara/altosestudos/ pdf/Livro-pre-sal.pdf {A}ccessed on {O}ctober 20$^{th}$ 2014},
+ howpublished={C\^{a}mara dos Deputados, Edi\c{c}\~{o}es C\^{a}mara, 2009. http://www2.camara.leg.br/a-camara/ altosestudos/pdf/Livro-pre-sal.pdf},
  year={2009}
 }
 
 @misc{can,
- title = {Introduction to the Controller Area Network ({CAN})},
+ title = {Introduction to the Controller Area Network ({CAN}).},
  author={Steve Corrigan},
- howpublished={Texas Instrument Application Report SLOA101A. http://www.ti.com/lit/an/sloa101a /sloa101a.pdf {A}ccessed on {O}ctober 20$^{th}$, 2014},
+ howpublished={Texas Instrument Application Report.  {A}ccessed on {O}ctober 20$^{th}$, 2014 http://www.ti.com/lit/an/sloa101a/sloa101a.pdf},
  year={2008}
 }
 
 @manual{capacitor_old,
- title = {General power system wiring practices applied to Tecnadyne DC brushless motors},
+ title = {General power system wiring practices applied to Tecnadyne DC brushless motors. {A}ccessed on {O}ctober 20$^{th}$, 2014},
  author={Tecnadyne},
- howpublished={Tecnadyne Application Note AN601. http://www.tecnadyne.com/cms/images/products/pdf/AN601_Back_EMF_Ground_Loops.pdf {A}ccessed on {O}ctober 20$^{th}$, 2014},
+ howpublished={http://www.tecnadyne.com/cms/images/products/pdf/AN601_Back_EMF_Ground_Loops.pdf},
  year={2006}
 }
 
-@misc{capacitor,
- title = {General power system wiring practices applied to Tecnadyne DC brushless motors},
+@manual{capacitor,
  author={Tecnadyne},
- howpublished={Tecnadyne Application Note AN601. http://www.tecnadyne.com/cms/images/products/pdf /AN601\_Back\_EMF\_Ground\_Loops.pdf {A}ccessed on {O}ctober 20$^{th}$, 2014},
+ title = {General power system wiring practices applied to Tecnadyne DC brushless motors. http://www.tecnadyne.com {A}ccessed on {O}ctober 20$^{th}$, 2014},
  year={2006}
 }
 

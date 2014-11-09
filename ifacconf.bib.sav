@@ -52,48 +52,23 @@
 }
 
 @article{cba,
-  title={DORIS - A MOBILE ROBOT FOR INSPECTION AND MONITORING OF OFFSHORE FACILITIES},
+  title={DORIS-A MOBILE ROBOT FOR INSPECTION AND MONITORING OF OFFSHORE FACILITIES},
   author={Galassi, Mauricio and R{\o}yr{\o}y, Anders and Carvalho, Guilherme and Freitas, Gustavo and From, P{\aa}l J and Costa, Ramon R and Lizarralde, Fernando and Hsu, Liu and de Carvalho, Gustavo HF and de Oliveira, Jose F and others},
-  journal={Anais do XX Congresso Brasileiro de Autom\'{a}tica},
+  journal={Congresso Brasileiro de Automática}
   year={2014}
 }
 
-@UNPUBLISHED{MARIUS_old,
+@UNPUBLISHED{MARIUS,
   title={Mission Control of the {MARIUS} {AUV}: System Design, Implementation, and Sea Trials},
   author={P. Oliveira, A. Pascoal, V. Silva, C. Silvestre},
   year={1996},
   howpublished ={Department of Electrical Engineering/Institute for Systems and Robotics}
 }
 
-@article{MARIUS,
-  title={Mission control of the MARIUS autonomous underwater vehicle: system design, implementation and sea trials},
-  author={Oliveira, P and Pascoal, A and Silva, V and Silvestre, C},
-  journal={International journal of systems science},
-  volume={29},
-  number={10},
-  pages={1065--1080},
-  year={1998},
-  publisher={Taylor \& Francis}
-}
-
-@misc{wna_old,
+@misc{wna,
  title = {Uranium, Electricity and Climate Change. http://www.world-nuclear.org/info/Energy-and-Environment/Uranium-Electricity-and-Climate-Change . {A}ccessed on {O}ctober 20$^{th}$, 2014},
  author={World-nuclear},
  year={2014},
-}
-
-@misc{wna,
- title = {Uranium, Electricity and Climate Change},
- author={World-nuclear},
- howpublished={World Nuclear Association website. http://www.world-nuclear.org/info/Energy-and-Environment/Uranium-Electricity-and-Climate-Change {A}ccessed on {O}ctober 20$^{th}$, 2014},
- year={2012},
-}
-
-@misc{can,
- title = {Introduction to the Controller Area Network ({CAN})},
- author={Steve Corrigan},
- howpublished={Texas Instrument Application Report SLOA101A. http://www.ti.com/lit/an/sloa101a /sloa101a.pdf {A}ccessed on {O}ctober 20$^{th}$, 2014},
- year={2008}
 }
 
 @article{OTC,
@@ -125,42 +100,27 @@ publisher={IEEE}
 
 @misc{qt,
  author = {Qt-Project},
- title = {Qt online documentation. http://qt-project.org/ {A}ccessed on {O}ctober 20$^{th}$, 2014},
+ title = {Qt online documentation. http://qt-project.org/ . {A}ccessed on {O}ctober 20$^{th}$, 2014},
  year={2014}
 }
 
-@misc{presal_old,
- author = {Fernando Ferro and Paulo Teixeira},
- title = {Os Desafios do Pr{\'e}-Sal. http://www2.camara.leg.br/a-camara/ altosestudos/pdf/Livro-pre-sal.pdf. {A}ccessed on {O}ctober 20$^{th}$, 2014},
- howpublished={C\^{a}mara dos Deputados, Edi\c{c}\~{o}es C\^{a}mara, 2009.},
- year={2009}
-}
-
 @misc{presal,
- title = {Os Desafios do Pr{\'e}-Sal},
- author = {Fernando Ferro and Paulo Teixeira},
- howpublished={C\^{a}mara dos Deputados, Edi\c{c}\~{o}es C\^{a}mara. http://www2.camara.leg.br/a-camara/altosestudos/ pdf/Livro-pre-sal.pdf {A}ccessed on {O}ctober 20$^{th}$ 2014},
- year={2009}
-}
-
-@misc{can,
- title = {Introduction to the Controller Area Network ({CAN})},
- author={Steve Corrigan},
- howpublished={Texas Instrument Application Report SLOA101A. http://www.ti.com/lit/an/sloa101a /sloa101a.pdf {A}ccessed on {O}ctober 20$^{th}$, 2014},
- year={2008}
+ author = {C{\^a}mara},
+ title = {Os Desafios do Pr{\'e}-Sal. {A}ccessed on {O}ctober 20$^{th}$, 2014},
+ howpublished={http://www2.camara.leg.br/a-camara/altosestudos/pdf/Livro-pre-sal.pdf},
+ year={2014}
 }
 
 @manual{capacitor_old,
- title = {General power system wiring practices applied to Tecnadyne DC brushless motors},
  author={Tecnadyne},
- howpublished={Tecnadyne Application Note AN601. http://www.tecnadyne.com/cms/images/products/pdf/AN601_Back_EMF_Ground_Loops.pdf {A}ccessed on {O}ctober 20$^{th}$, 2014},
+ title = {General power system wiring practices applied to Tecnadyne DC brushless motors. {A}ccessed on {O}ctober 20$^{th}$, 2014},
+ howpublished={http://www.tecnadyne.com/cms/images/products/pdf/AN601_Back_EMF_Ground_Loops.pdf},
  year={2006}
 }
 
-@misc{capacitor,
- title = {General power system wiring practices applied to Tecnadyne DC brushless motors},
+@manual{capacitor,
  author={Tecnadyne},
- howpublished={Tecnadyne Application Note AN601. http://www.tecnadyne.com/cms/images/products/pdf /AN601\_Back\_EMF\_Ground\_Loops.pdf {A}ccessed on {O}ctober 20$^{th}$, 2014},
+ title = {General power system wiring practices applied to Tecnadyne DC brushless motors. http://www.tecnadyne.com {A}ccessed on {O}ctober 20$^{th}$, 2014},
  year={2006}
 }
 

@@ -39,7 +39,7 @@ and FAPERJ.}
 \author[1]{Gustavo Freitas}
 \author[1]{Ramon R. Costa}
 \author[2]{P{\aa}l From}
-\author[3]{Mauricio Galassi}
+\author[3]{Maur{\'i}cio Galassi}
 \author[4]{Peter W. J. Derks}
 \author[5]{Anders R{\o}yr{\o}y}
 
@@ -355,7 +355,7 @@ microcontroller based PCBs designed for:
 
 \begin{enumerate}[i)]
     \item \emph{Failure detection}, achieved by the monitoring of devices'
-    current/voltage and module temperature / humidity;\\
+    current/voltage and module temperature/humidity;\\
     \item \emph{Peripheral devices protection} against overcurrent by fuses and
     solid-state relays, which can be turned on/off at any time automatically,
     upon a detected failure, or manually via operator;\\
