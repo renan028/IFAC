@@ -56,8 +56,8 @@ and FAPERJ.}
 %% Opção 2 de filiação sem email
   \address[1]{Electrical
  Engineering Department, COPPE UFRJ, Rio de Janeiro, Brazil}
- \address[2]{Mathematical Sciences and Technology Department, Norwegian
-University of Life Sciences, Oslo, Norway}
+ \address[2]{Department of Mathematical Sciences and Technology, Norwegian
+University of Life Sciences, {\AA}s, Norway}
  \address[3]{Research and Development Center, Petrobras/CENPES,
  Rio de Janeiro, Brazil}
  \address[4]{TPD RDI Frontier Developments (FD), Statoil Brasil \'{O}leo e G\'{a}s Ltda., Rio de Janeiro, Brazil}
@@ -69,9 +69,9 @@ robot for remote supervision, diagnosis, and data acquisition on offshore
 facilities. The proposed system is composed of a rail-guided robot capable of
 carrying different sensors through the inspected area. This paper presents a
 general overview of the robot, and a description of the developed embedded
-electronics, power supply system and software architecture. Initial results
+electronics, power supply system, and software architecture. Initial results
 with teleoperated navigation validate the concepts considered so far and
-rise several challenges for future works.
+rise several challenges for future work.
 \end{abstract}
 
 \begin{keyword}
@@ -85,8 +85,10 @@ software architecture;
 
 \section{Introduction}
 The Oil \& Gas demand will grow rapidly in the next decades (\cite{wna}) and the
-need to obtain the resources from hostile environments will increase operation
-costs. Also, the working conditions on offshore installations, such as unfriendly atmosphere, heavy weather, extreme temperatures, constrained space, and the logistical issues are serious obstacles for Oil \& Gas companies. In order to be competitive, companies are looking into new and better technologies to be able to produce marginal fields and gain new resources. The use of robotics in inspection, maintenance, and repair operations in Oil \& Gas facilities could greatly improve efficiency, health and safety, while decreasing operational and logistics costs.
+need to obtain the resources from remote and hostile environments will increase
+operation costs. Also, the working conditions on offshore installations,
+characterized by unfriendly atmosphere, harsh weather conditions,
+extreme temperatures, constrained space, and the logistical issues are serious obstacles for Oil \& Gas companies. In order to be competitive, companies are looking into new and better technologies to be able to produce marginal fields and gain new resources. The use of robotics in inspection, maintenance, and repair operations in Oil \& Gas facilities could greatly improve efficiency, health and safety, while decreasing operational and logistics costs.
 
 In the specific case of Brazil, the Oil \& Gas industry is growing at a high
 pace. The recent discoveries of big oil fields in the pre-salt layer off the
@@ -124,16 +126,20 @@ flanges, tanks, and stairways.
 %lever position, gas level or leakage and acoustic anomalies monitoring, and
 %robots for identify and locate fire.
 
-Currently, the majority of the robotic systems in the Oil \& Gas industry are used for subsea tasks, such as mapping of the seabed, and inspection and repair of underwater equipment, risers and pipelines. However, recent research has focused on robotic applications on the topside of platforms to perform inspection and maintenance tasks, which includes valve and lever manipulation, gas level and leakage monitoring, acoustic anomalies diagnosis, and identification of smoke and fire.
+Currently, the majority of the robotic systems in the Oil \& Gas industry are
+used for subsea tasks, such as mapping of the seabed, and inspection operation
+and repair of underwater equipment, risers and pipelines. However, recent research has focused on robotic applications on the topside of platforms to perform inspection and maintenance tasks, which includes valve and lever manipulation, gas level and leakage monitoring, acoustic anomalies diagnosis, and identification of smoke and fire.
 %Guilherme: Senti falta de refs para a parte do subsea
 
 The MIMROex inspection robot (\cite{mimroex}) was developed and
 tested by the Fraunhofer Institute of Manufacturing Engineering and Automation
 (IPA). The robot is capable of safely navigate in offshore environments, and
-autonomously execute inspection tasks.
+autonomously execute inspection tasks. Sensabot (\cite{sensabot}), a
+teleoperated inspection robot developed by Carnegie Mellon University, was
+designed for severe weather and atmosphere, being certified to operate in toxic, flammable and explosive environments. The SINTEF Topside Robotic System, developed in the robotic lab facility in
+Trondheim, Norway, is an intelligent instrumentation system designed to enable onshore operators
+to monitor and control the platform's processes (\cite{kyrkjebo2009robotic}).
 
-Sensabot (\cite{sensabot}), a teleoperated inspection robot developed by Carnegie Mellon University, was
-designed for severe weather and atmosphere, being certified to operate in toxic, flammable and explosive environments.
 
 %The robot includes the following sensors:
 %\begin{enumerate}[i)]
@@ -145,9 +151,6 @@ designed for severe weather and atmosphere, being certified to operate in toxic,
 %    \item Video camera to detect obstacles
 %\end{enumerate}
 
-The SINTEF Topside Robotic System, developed in the robotic lab facility in
-Trondheim, Norway, is an intelligent instrumentation system designed to enable onshore operators
-to monitor and control the platform's processes (\cite{kyrkjebo2009robotic}).
 
 %In this paper, we describe the DORIS project, which aims to develop a mobile
 %robot to perform monitoring and inspection in an
@@ -175,8 +178,8 @@ remarks are drawn in Section \ref{sec:conclusions}.
 \section{General Overview}\label{sec:general_overview}
 
 The DORIS robot contains a manipulator arm, cameras, microphones, and gas,
-vibration and temperature sensors. The robotic device moves through a rail
-and both of them are based on a modular concept.
+vibration and temperature sensors. The robotic device moves on a rail
+and both robot and rail are based on a modular concept.
 Additional robot modules can be annexed to include extra sensors, and the rail
 track can be modified by adding or replacing rail segments, thus enabling
 operation in different areas of the platform. Figure~\ref{fig:DORIS-overview}
@@ -243,11 +246,16 @@ supply, software, mechanics and signal processing.
 %-------------------------------------------------------------------------------------------------------------------------
 %Mechanics
 %-------------------------------------------------------------------------------------------------------------------------
-The mechanics comprises the modules, the joints used to couple them, and the rail. The design allows the robot to move smoothly in a 3D space and to make a full stop anywhere on the track. It incorporates the use of gimbals with traction and guide wheels surrounding a tubular rail. The rail is designed to be as simple as possible, leaving the complexity to the robot, which is motivated by the fact that the rail may be extremely long so that the cost of it should be kept to a minimum. The use of two sets of gimbals provide mechanical compliance with rail curvatures, smoothness of the robot's base movement, and good weight distribution.
+The mechanics comprises the modules, the joints used to couple them, and the
+rail. The design allows the robot to move smoothly in a 3D space and to make a
+full stop anywhere on the track including the vertical segment. It incorporates
+the use of gimbals with traction and guide wheels surrounding a tubular rail. The rail is designed to be as simple as possible, leaving the complexity to the robot, which is motivated by the fact that the rail may be extremely long so that the cost of it should be kept to a minimum. The use of two sets of gimbals provide mechanical compliance with rail curvatures, smoothness of the robot's base movement, and good weight distribution.
 
 Considering the severe corrosion and weather conditions in offshore environments, the choice of materials is imperative for the success of the mechanical project and certified solutions must be considered if available.
 
-The robot is composed of two modules in its default configuration, but it is conceived to be augmented with additional modules. The total weight of this basic configuration is estimated at 50 kg and DORIS can reach a maximum speed of 1m/s.
+The robot is composed of two modules in its default configuration, but it is
+designed to be augmented with additional modules. The total weight of this basic
+configuration is estimated at 50 kg and DORIS can reach a maximum speed of 1m/s.
 
 %-------------------------------------------------------------------------------------------------------------------------
 %DSP
@@ -293,10 +301,8 @@ explosion by ignition, and equipped with a monitoring system.
 Another concern is that the embedded computers must run heavy signal
 processing algorithms, requiring high computational power. However, the power
 supply subsystem must efficiently provide power and maintain a low level of
-power consumption.
-
-Further complications arise because the system is designed to move in confined
-areas and have efficient wireless communication with operators, providing
+power consumption. Further complications arise because the system is designed to
+move in confined areas and have efficient wireless communication with operators, providing
 online information of sensors data.
 
 %Temperatures in offshore facilities can
@@ -322,7 +328,8 @@ Together, the Ethernet network and Wi-Fi form a \emph{Local Area Network} (LAN) 
 communication and processing of the heavy amount of data, such as audio and video from all
 cameras. In addition, this network topology allows easy expansion of the Ethernet network for additional wagons.
 
-DORIS traction is taken by the \emph{actuation system}, which is composed of four controller drivers, and four motor packs, each containing a high power 200 W EC-4pole Maxon brushless motor, an encoder and a planetary gearhead.
+DORIS traction is taken care of by the \emph{actuation system}, which is
+composed of four controller drivers, and four motor packs, each containing a high power 200 W EC-4pole Maxon brushless motor, an encoder and a planetary gearhead.
 
 The \emph{actuation system} is commanded by the computer via CAN bus, which
 provides reliability, safe transmission and the appropriate speed to this
@@ -387,13 +394,13 @@ to protect devices against overcurrent. This is done by commanding
 the open/close state of the relays, hence turning off the devices. All these AVR
 functionalities can also be commanded by the remote operator.
 
-The BMS communicates with the batteries via \emph{System Management Bus} (SMBUS), and it has a connection with the BMS bus switching board. The SMBUS collects important information from the batteries, such as temperature, voltage, current and remaining charge.
-% Zeka: Verificar se é mesmo enrolação
-
-The BMS bus switching system contains high power solid-state relays (20 A), which
-can be commanded from the BMS AVR to distribute the power to
+The BMS communicates with the batteries via \emph{System Management Bus}
+(SMBUS), and it has a connection with the BMS bus switching board. The SMBUS collects important information from the batteries, such as temperature, voltage, current and remaining charge. The BMS bus switching system contains high power solid-state relays (20 A), which can be commanded from the BMS AVR to distribute the power to
 either motor bus or electronics bus. The decisions about the better
 distribution are based primarily on data collected via SMBUS.
+% Zeka: Verificar se é mesmo enrolação
+
+
 
 \section{Power supply system}\label{sec:powersupply_overview}
 The power supply system is responsible for the safe, reliable, and
@@ -514,7 +521,8 @@ Maxon EPOS2 drivers, a PCIe/104 pentium i7 computer module with \emph{solid-stat
 SAM was tested in horizontal and vertical motion on a closed rail made of straight and curved PVC tubes. The curved segments are straight tubes of 1 m bent by $90^{\circ}$, resulting in a curvature of approximately 630 mm. The complete track has 23 m length and comprises all the possible robot motion types. The rail was installed in the
 GSCAR laboratory, in COPPE/UFRJ (Brazil), and SAM was able to fully move throughout the entire track.
 
-Concerning electronics, power supply, and software, the first objectives of SAM were to test the following concepts:
+Concerning the electronics, power supply, and software, the first objectives of
+SAM were to test the following concepts:
 \begin{enumerate}[i)]
   \item \emph{Electronics}: sensor integration and communication system;\\
   \item \emph{Power supply}: independent buses for motors and electronics devices, and batteries robustness and duration;\\
@@ -611,11 +619,12 @@ Ongoing implementations and future challenges include:
 
   \item \emph{Solution for DORIS downhill motion issue:}\\
   The regeneration issue imposes overvoltage on the drivers, which may reset
-  during the downhill motion. To prevent it, a shunt regulator
+  during the downhill motion. To prevent this, a shunt regulator
   will be used to dispose the extra energy and avoid the overvoltage issue.
   It represents a solution, but wastes this energy, while a
-  big capacitor bank could be used as an energy storage device. Tests will be held to measure the
-  generated amount of energy to decide if it is worth to embed a device to store or waste it;\\
+  big capacitor bank could be used as an energy storage device. Tests will be
+  performed to measure the generated amount of energy to decide if it is worth
+  to embed a device to store or waste it;\\
 
   \item \emph{Hardware Certification:}\\
   The robot must be certified to operate in corrosive environments and explosive atmospheres.
