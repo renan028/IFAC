@@ -56,8 +56,8 @@ and FAPERJ.}
 %% Opção 2 de filiação sem email
   \address[1]{Electrical
  Engineering Department, COPPE UFRJ, Rio de Janeiro, Brazil}
- \address[2]{Department of Mathematical Sciences and Technology, Norwegian
-University of Life Sciences, {\AA}s, Norway}
+ \address[2]{Mathematical Sciences and Technology Department, Norwegian
+University of Life Sciences, Oslo, Norway}
  \address[3]{Research and Development Center, Petrobras/CENPES,
  Rio de Janeiro, Brazil}
  \address[4]{TPD RDI Frontier Developments (FD), Statoil Brasil \'{O}leo e G\'{a}s Ltda., Rio de Janeiro, Brazil}
@@ -69,9 +69,9 @@ robot for remote supervision, diagnosis, and data acquisition on offshore
 facilities. The proposed system is composed of a rail-guided robot capable of
 carrying different sensors through the inspected area. This paper presents a
 general overview of the robot, and a description of the developed embedded
-electronics, power supply system, and software architecture. Initial results
+electronics, power supply system and software architecture. Initial results
 with teleoperated navigation validate the concepts considered so far and
-rise several challenges for future work.
+rise several challenges for future works.
 \end{abstract}
 
 \begin{keyword}
@@ -85,10 +85,8 @@ software architecture;
 
 \section{Introduction}
 The Oil \& Gas demand will grow rapidly in the next decades (\cite{wna}) and the
-need to obtain the resources from remote and hostile environments will increase
-operation costs. Also, the working conditions on offshore installations,
-characterized by unfriendly atmosphere, harsh weather conditions,
-extreme temperatures, constrained space, and the logistical issues are serious obstacles for Oil \& Gas companies. In order to be competitive, companies are looking into new and better technologies to be able to produce marginal fields and gain new resources. The use of robotics in inspection, maintenance, and repair operations in Oil \& Gas facilities could greatly improve efficiency, health and safety, while decreasing operational and logistics costs.
+need to obtain the resources from hostile environments will increase operation
+costs. Also, the working conditions on offshore installations, such as unfriendly atmosphere, heavy weather, extreme temperatures, constrained space, and the logistical issues are serious obstacles for Oil \& Gas companies. In order to be competitive, companies are looking into new and better technologies to be able to produce marginal fields and gain new resources. The use of robotics in inspection, maintenance, and repair operations in Oil \& Gas facilities could greatly improve efficiency, health and safety, while decreasing operational and logistics costs.
 
 In the specific case of Brazil, the Oil \& Gas industry is growing at a high
 pace. The recent discoveries of big oil fields in the pre-salt layer off the
@@ -126,20 +124,16 @@ flanges, tanks, and stairways.
 %lever position, gas level or leakage and acoustic anomalies monitoring, and
 %robots for identify and locate fire.
 
-Currently, the majority of the robotic systems in the Oil \& Gas industry are
-used for subsea tasks, such as mapping of the seabed, and inspection operation
-and repair of underwater equipment, risers and pipelines. However, recent research has focused on robotic applications on the topside of platforms to perform inspection and maintenance tasks, which includes valve and lever manipulation, gas level and leakage monitoring, acoustic anomalies diagnosis, and identification of smoke and fire.
+Currently, the majority of the robotic systems in the Oil \& Gas industry are used for subsea tasks, such as mapping of the seabed, and inspection and repair of underwater equipment, risers and pipelines. However, recent research has focused on robotic applications on the topside of platforms to perform inspection and maintenance tasks, which includes valve and lever manipulation, gas level and leakage monitoring, acoustic anomalies diagnosis, and identification of smoke and fire.
 %Guilherme: Senti falta de refs para a parte do subsea
 
 The MIMROex inspection robot (\cite{mimroex}) was developed and
 tested by the Fraunhofer Institute of Manufacturing Engineering and Automation
 (IPA). The robot is capable of safely navigate in offshore environments, and
-autonomously execute inspection tasks. Sensabot (\cite{sensabot}), a
-teleoperated inspection robot developed by Carnegie Mellon University, was
-designed for severe weather and atmosphere, being certified to operate in toxic, flammable and explosive environments. The SINTEF Topside Robotic System, developed in the robotic lab facility in
-Trondheim, Norway, is an intelligent instrumentation system designed to enable onshore operators
-to monitor and control the platform's processes (\cite{kyrkjebo2009robotic}).
+autonomously execute inspection tasks.
 
+Sensabot (\cite{sensabot}), a teleoperated inspection robot developed by Carnegie Mellon University, was
+designed for severe weather and atmosphere, being certified to operate in toxic, flammable and explosive environments.
 
 %The robot includes the following sensors:
 %\begin{enumerate}[i)]
@@ -151,6 +145,9 @@ to monitor and control the platform's processes (\cite{kyrkjebo2009robotic}).
 %    \item Video camera to detect obstacles
 %\end{enumerate}
 
+The SINTEF Topside Robotic System, developed in the robotic lab facility in
+Trondheim, Norway, is an intelligent instrumentation system designed to enable onshore operators
+to monitor and control the platform's processes (\cite{kyrkjebo2009robotic}).
 
 %In this paper, we describe the DORIS project, which aims to develop a mobile
 %robot to perform monitoring and inspection in an
@@ -178,8 +175,8 @@ remarks are drawn in Section \ref{sec:conclusions}.
 \section{General Overview}\label{sec:general_overview}
 
 The DORIS robot contains a manipulator arm, cameras, microphones, and gas,
-vibration and temperature sensors. The robotic device moves on a rail
-and both robot and rail are based on a modular concept.
+vibration and temperature sensors. The robotic device moves through a rail
+and both of them are based on a modular concept.
 Additional robot modules can be annexed to include extra sensors, and the rail
 track can be modified by adding or replacing rail segments, thus enabling
 operation in different areas of the platform. Figure~\ref{fig:DORIS-overview}
@@ -246,16 +243,11 @@ supply, software, mechanics and signal processing.
 %-------------------------------------------------------------------------------------------------------------------------
 %Mechanics
 %-------------------------------------------------------------------------------------------------------------------------
-The mechanics comprises the modules, the joints used to couple them, and the
-rail. The design allows the robot to move smoothly in a 3D space and to make a
-full stop anywhere on the track including the vertical segment. It incorporates
-the use of gimbals with traction and guide wheels surrounding a tubular rail. The rail is designed to be as simple as possible, leaving the complexity to the robot, which is motivated by the fact that the rail may be extremely long so that the cost of it should be kept to a minimum. The use of two sets of gimbals provide mechanical compliance with rail curvatures, smoothness of the robot's base movement, and good weight distribution.
+The mechanics comprises the modules, the joints used to couple them, and the rail. The design allows the robot to move smoothly in a 3D space and to make a full stop anywhere on the track. It incorporates the use of gimbals with traction and guide wheels surrounding a tubular rail. The rail is designed to be as simple as possible, leaving the complexity to the robot, which is motivated by the fact that the rail may be extremely long so that the cost of it should be kept to a minimum. The use of two sets of gimbals provide mechanical compliance with rail curvatures, smoothness of the robot's base movement, and good weight distribution.
 
 Considering the severe corrosion and weather conditions in offshore environments, the choice of materials is imperative for the success of the mechanical project and certified solutions must be considered if available.
 
-The robot is composed of two modules in its default configuration, but it is
-designed to be augmented with additional modules. The total weight of this basic
-configuration is estimated at 50 kg and DORIS can reach a maximum speed of 1m/s.
+The robot is composed of two modules in its default configuration, but it is conceived to be augmented with additional modules. The total weight of this basic configuration is estimated at 50 kg and DORIS can reach a maximum speed of 1m/s.
 
 %-------------------------------------------------------------------------------------------------------------------------
 %DSP
@@ -301,8 +293,10 @@ explosion by ignition, and equipped with a monitoring system.
 Another concern is that the embedded computers must run heavy signal
 processing algorithms, requiring high computational power. However, the power
 supply subsystem must efficiently provide power and maintain a low level of
-power consumption. Further complications arise because the system is designed to
-move in confined areas and have efficient wireless communication with operators, providing
+power consumption.
+
+Further complications arise because the system is designed to move in confined
+areas and have efficient wireless communication with operators, providing
 online information of sensors data.
 
 %Temperatures in offshore facilities can
@@ -311,40 +305,34 @@ online information of sensors data.
 %corrosion ~\cite{graf2007mobile}.
 
 \section{Embedded Electronics}\label{sec:electronics_overview}
-The embedded electronics (EE) is composed of the following subsystems: communication, actuation, sensor integration, and vehicle support.
+The current embedded electronics (EE) is composed of a local central computer, a remote operation base and the following subsystems: communication, actuation, data acquisition, and an independent vehicle support system (VSS).
 
-The \emph{communication system} is composed of the following:
+The \emph{computer} is the robot decision center, and it is in charge of: heavy data amount processing (video, images, audio and environmental data), data storing, data communication from/to other devices and the remote base, traction control and responding to other user commands. The computer is basically composed of a high performance Intel\textregistered Core\texttrademark i7 embedded in a PCIe/104 form factor board, RAM cards and SSD (\emph{solid-state drive}) card. This configuration permits the system easy expansion, and the SSD is a "no-moving part" solution that protects storage against vibration or other mechanical impact.
+
+The remote operation base is the user workstation through where DORIS can be be remotely operated. This base can be located at any feasible site on the offshore facility. It is basically composed of a radio transceiver, a Wi-Fi access point and a computer system with a graphical user interface (GUI). The GUI includes buttons for DORIS control, buttons for device remote on/off, monitoring reports of current/voltage/temperature/failure, among other functions.
+
+The \emph{communication system} is in charge of the data traffic within the robot and between the robot and the remote base. This system is composed of:
 
 \begin{enumerate}[i)]
-  \item \emph{Local Gigabit Ethernet} network for heavy data communication;\\
-  \item \emph{Controller Area Network} (CAN) for communication of control commands;\\
-  \item \emph{Wireless technologies} between the robot and the remote control base located at the offshore facility: DORIS can be remotely operated from this base via Wi-Fi IEEE 802.11n or via 2.4/5.0 GHz radio links (upon Wi-Fi failures).
+  \item \emph{Local Gigabit Ethernet} network: for heavy data real-time traffic within the robot, such as video, audio and commands from/to the computers;\\
+  \item \emph{Controller Area Network} (CAN) bus for communication of control commands to the actuation system;\\
+  \item \emph{Wireless technologies} between the robot and the remote operation base: DORIS can be remotely operated from this base via Wi-Fi IEEE 802.11n or via 2.4/5.0 GHz radio links (upon Wi-Fi absence or failure). There are two Wi-Fi access points: one placed on the robot and another one at the remote base (also, one radio transceiver on the robot and another on the base).
 \end{enumerate}
 
 The Ethernet network has a star topology centralized by an OSI-Layer 2 Switch,
-and connects a computer, three cameras (one with an embedded microphone), a Wi-Fi access point (another one is needed at the remote base) and \emph{Printed Circuit Boards} (PCBs).
+and connects the computer, Ethernet peripheral devices (such as cameras), a local Wi-Fi access point and the vehicle support system (VSS). This network topology allows easy expansion of the Ethernet network for additional wagons. Together, the Ethernet network and Wi-Fi form a \emph{Local Area Network} (LAN).
 
-Together, the Ethernet network and Wi-Fi form a \emph{Local Area Network} (LAN) for real-time
-communication and processing of the heavy amount of data, such as audio and video from all
-cameras. In addition, this network topology allows easy expansion of the Ethernet network for additional wagons.
-
-DORIS traction is taken care of by the \emph{actuation system}, which is
-composed of four controller drivers, and four motor packs, each containing a high power 200 W EC-4pole Maxon brushless motor, an encoder and a planetary gearhead.
+DORIS traction is taken by the \emph{actuation system}, which is composed of four controller drivers (Maxon Motor EPOS2 70/10), and four motor packs, each containing a high power 200 W EC-4pole Maxon Motor brushless motor, an encoder and a planetary gearhead (with 21:1 reduction rate).
 
 The \emph{actuation system} is commanded by the computer via CAN bus, which
 provides reliability, safe transmission and the appropriate speed to this
-application (\cite{can}). Since the traction system generates a significant
-amount of conductive noise, a galvanic opto-isolator is used between the CAN and the
-computer to minimize interference on the rest of the EE system.
+application (\cite{can}). The interface between the computer and the CAN bus is a dual channel board compatible with PCI-express bus, which is present at the PCIe/104 computer module board. Since the traction system generates a significant amount of conductive noise, a galvanic opto-isolator is embedded in the CAN interface to minimize interference on the rest of the EE system.
 
 % Gustavo: Falar do Watchdog do alex.
 % Guilherme: Nao sera falado agora
 
-The \emph{sensor integration system} is composed of the sensors and the interface
-between the devices and the computer. The subsystem enables inclusion,
-reconfiguration and replacement of peripheral devices. The sensor data
-integration is carried out by a high performance Intel\textregistered
-Core\texttrademark i7 computer embedded in a PCIe/104 form factor board.
+The current \emph{data acquisition system} is in charge of the acquisition of images, video, audio from the environment. It is composed of a fixed camera, an infrared thermal camera (which gives both a thermal map and temperature measurement), a \emph{fisheye} camera, and two stereoscopic webcams (with embedded microphone). All cameras have Ethernet interface, except the webcams (USB).
+
 An overall scheme of DORIS EE system is shown in Fig.~\ref{fig:EE-Communications}.
 
 \begin{figure}
@@ -358,49 +346,46 @@ An overall scheme of DORIS EE system is shown in Fig.~\ref{fig:EE-Communications
 \subsection{Vehicle Support System}\label{sec:VSS}
 
 The \emph{Vehicle Support System (VSS)} (\cite{MARIUS}) is composed of
-microcontroller based PCBs designed for:
+microcontroller based \emph{printed circuit boards} (PCBs) designed for:
 
 \begin{enumerate}[i)]
     \item \emph{Failure detection}, achieved by the monitoring of devices'
-    current/voltage and module temperature / humidity;\\
-    \item \emph{Peripheral devices protection} against overcurrent by fuses and
+    current/voltage and module internal temperature/humidity;\\
+    \item \emph{Device protection} against overcurrent by fuses and
     solid-state relays, which can be turned on/off at any time automatically,
     upon a detected failure, or manually via operator;\\
     \item \emph{Energy distribution and monitoring}, achieved by the \emph{Battery
-    Management System (BMS)}. Each battery pack is monitored via SMBUS
+    Management System (BMS)}. Each battery pack is monitored via \emph{System Management Bus} (SMBUS)
     communication, which allows the reading of the battery status, voltage,
     current, temperature, remaining charge, and other variables. This
-    information allows the PCB embedded microcontrollers to provide adequate
-    power balance in extreme situations (e.g.: demand of full power to
+    information allows the VSS to provide adequate power balance in extreme situations (e.g.: demand of full power to
     either the traction system or the electronics system) or reconfiguration of
     power supply distribution in case of failures;\\
     \item \emph{Emergency handling}: the robot can be turned on/off using a physical
     \emph{emergency shutdown (ESD)} button or via radio. The radio system can
-    also replace Wi-Fi in some functionalities if it fails.
+    also replace Wi-Fi in some functionalities if it fails or are simply unavailable.
   \end{enumerate}
 
-DORIS VSS includes three types of PCBs: supervisory system, BMS, and BMS switching board.
+DORIS VSS includes three types of PCBs: supervisory, BMS and power bus switching.
 
-The supervisory system is composed of AT90CAN AVR microcontrollers, solid-state relays (max. 1.5 A), hall effect sensors,
-16 channels analog-to-digital converter (ADC), temperature/humidity (T/H) sensor, and an Ethernet-to-UART converter. It is responsible for monitoring and protecting the robot devices. The monitoring functions collects the module supply voltages using the AVR embedded ADC, the module temperature and humidity using a specific I$^{2}$C T/H sensor,
-and the devices' supply currents using hall-effect sensors and an external ADC for data interpretation.
+The \emph{supervisory PCB} is basically composed of ATMEL AVR AT90CAN64 microcontrollers, solid-state relays (max. 1.5 A), hall effect sensors,
+16-channel analog-to-digital converter (ADC), an I$^{2}$C temperature/humidity (T/H) sensor, and an Ethernet-to-UART converter. It is in charge of monitoring and protecting the robot devices. The monitoring functions collects the module supply voltages using the AVR embedded ADC, the module temperature and humidity using the T/H sensor,
+and the devices' supply currents using hall sensors and an external 16-channel ADC for data interpretation.
 
-The AVR microcontroller manages the collected data, periodically reporting
-it to DORIS computers via Ethernet, and locally detecting and reacting to faulty
-situations. Since Ethernet is not an available interface in this AVR
+The AVR microcontrollers manage the collected data, report it periodically to DORIS computer via Ethernet, and locally detect or react to faulty situations. Since Ethernet is not an available interface in this AVR
 model, an UART-to-Ethernet converter is used for data communication. The local fault
 detection is done by pre-programmed algorithms in the microcontroller, which reacts
 to protect devices against overcurrent. This is done by commanding
 the open/close state of the relays, hence turning off the devices. All these AVR
 functionalities can also be commanded by the remote operator.
 
-The BMS communicates with the batteries via \emph{System Management Bus}
-(SMBUS), and it has a connection with the BMS bus switching board. The SMBUS collects important information from the batteries, such as temperature, voltage, current and remaining charge. The BMS bus switching system contains high power solid-state relays (20 A), which can be commanded from the BMS AVR to distribute the power to
-either motor bus or electronics bus. The decisions about the better
-distribution are based primarily on data collected via SMBUS.
+The \emph{BMS PCB} is in charge of managing the power supply system. It communicates with the batteries via SMBUS and has a connection with the power bus switching PCB. SMBUS is the interface of the telemetry system embedded in DORIS battery model. This system collects important information from the batteries, such as temperature, voltage, current and remaining charge.
 % Zeka: Verificar se é mesmo enrolação
 
-
+The \emph{power bus switching PCB} contains high power solid-state relays (20 A), which
+can be commanded from the BMS PCB to distribute the power of each battery pack to
+either motor bus or electronics bus. The decisions about the better
+power balancing are based primarily on data collected via SMBUS.
 
 \section{Power supply system}\label{sec:powersupply_overview}
 The power supply system is responsible for the safe, reliable, and
@@ -514,15 +499,13 @@ A prototype named \emph{Single Autonomous Module} (SAM) was built to verify the 
 
 \subsection{Single Autonomous Module (SAM)}\label{sec:SAM_tests}
 SAM (Fig.~\ref{fig:SAM2}) is a single module composed of an AXIS ethernet fixed
-camera, an USB Minoru 3D Webcam, a Cisco wireless router, four EC-4pole 200 W motors and
-Maxon EPOS2 drivers, a PCIe/104 pentium i7 computer module with \emph{solid-state drive}
-(Kingston) and a few PCBs.
+camera, two USB Minoru stereoscopic Webcams, a Cisco wireless router, four EC-4pole 200 W motors and
+Maxon EPOS2 drivers, a PCIe/104 with Intel Core i7 computer module, 4GB DDR3 RAM, 240GB SSD (Kingston), a dual-channel opto-isolated PCI-express CAN interface, and few PCBs.
 
 SAM was tested in horizontal and vertical motion on a closed rail made of straight and curved PVC tubes. The curved segments are straight tubes of 1 m bent by $90^{\circ}$, resulting in a curvature of approximately 630 mm. The complete track has 23 m length and comprises all the possible robot motion types. The rail was installed in the
 GSCAR laboratory, in COPPE/UFRJ (Brazil), and SAM was able to fully move throughout the entire track.
 
-Concerning the electronics, power supply, and software, the first objectives of
-SAM were to test the following concepts:
+Concerning electronics, power supply, and software, the first objectives of SAM were to test the following concepts:
 \begin{enumerate}[i)]
   \item \emph{Electronics}: sensor integration and communication system;\\
   \item \emph{Power supply}: independent buses for motors and electronics devices, and batteries robustness and duration;\\
@@ -536,7 +519,13 @@ SAM were to test the following concepts:
 \label{fig:SAM2}
 \end{figure}
 
-The \emph{Ethernet communication network} (to connect the fixed camera, the PCIe/104, and the access point), the  \emph{Wi-Fi communication network} (to connect SAM with the base), and the \emph{CAN communication network} (to control the actuation system) were implemented. Two 3D Webcams were plugged to the PCIe/104 through USB connections. All the communication networks worked properly, as expected.
+The communication system was implemented: \emph{Ethernet communication network}
+to connect the fixed camera, the computer, and the access point; \emph{Wi-Fi
+communication network} to connect SAM with the base; \emph{CAN bus} to
+control the actuation system; and two stereoscopic Webcams were plugged to the
+computer through USB connections. As Wi-Fi 
+All the communication networks worked properly, as
+expected.
 
 The concept of independent power buses proved to be efficient, and the designed
 battery capacity could handle the system energy demand. However, it was
@@ -547,10 +536,13 @@ voltage level that causes the motors drivers to reset. This issue must
 be further studied to investigate if it is worth to store
 this extra energy or simply waste it using an additional device to dissipate this energy as heat.
 
-Furthermore, it was verified that SAM can be teleoperated from anywhere by accessing its Wi-Fi network and the GUI (\emph{Graphical User Interface}) developed in Qt environment. SAM has already been teleoperated by Petrobras (from Brazil) and by Statoil (from Norway).
+Furthermore, it was verified that SAM can be teleoperated from anywhere by
+accessing its Wi-Fi network and the GUI (\emph{Graphical User Interface})
+developed in Qt environment. SAM has already been teleoperated by Petrobras
+(from Brazil) and by Statoil (from Norway).
 
-\subsection{Vehicle Support System Tests}\label{sec:VSS_tests}
-All DORIS VSS functions were successfully tested independently. A PCB and a RS485 interface with a notebook were used to emulate the UART communication. The AVR firmware was programmed in C++ using Atmel Studio 6.1.
+\subsection{Vehicle Support System (VSS) Tests}\label{sec:VSS_tests}
+All DORIS VSS functions were successfully tested independently. The AVR firmware was programmed in C++ using Atmel Studio 6.1.
 The following tests/implementations were successfully performed:
 \begin{enumerate}[i)]
     \item Logic to command the \emph{solid-state relays} to turn on/off some devices: the
@@ -619,12 +611,11 @@ Ongoing implementations and future challenges include:
 
   \item \emph{Solution for DORIS downhill motion issue:}\\
   The regeneration issue imposes overvoltage on the drivers, which may reset
-  during the downhill motion. To prevent this, a shunt regulator
+  during the downhill motion. To prevent it, a shunt regulator
   will be used to dispose the extra energy and avoid the overvoltage issue.
   It represents a solution, but wastes this energy, while a
-  big capacitor bank could be used as an energy storage device. Tests will be
-  performed to measure the generated amount of energy to decide if it is worth
-  to embed a device to store or waste it;\\
+  big capacitor bank could be used as an energy storage device. Tests will be held to measure the
+  generated amount of energy to decide if it is worth to embed a device to store or waste it;\\
 
   \item \emph{Hardware Certification:}\\
   The robot must be certified to operate in corrosive environments and explosive atmospheres.
