@@ -1,4 +1,4 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{15}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
@@ -21,7 +21,7 @@ Carvalho, G., Freitas, G., Costa, R., Carvalho, G., Oliveira, J., Netto, S.,
   Marcovistz, I., Peixoto, A., Nunes, E., From, P., Galassi, M., and
   R{\o}yr{\o}y, A. (2013).
 \newblock Doris - monitoring robot for offshore facilities.
-\newblock \emph{OTC Brasil}.
+\newblock \emph{Offshore Technology Conference (OTC) Brasil}.
 
 \bibitem[{Chen et~al.(2014)Chen, Stavinoha, Walker, Zhang, and
   Fuhlbrigge}]{chen}
@@ -104,11 +104,6 @@ Tecnadyne (2006).
 \newblock Tecnadyne Application Note AN601.
   http://www.tecnadyne.com/cms/images/products/pdf
   /AN601\_Back\_EMF\_Ground\_Loops.pdf {A}ccessed on {O}ctober 20$^{th}$, 2014.
-
-\bibitem[{Verma et~al.(2004)Verma, Gordon, Simmons, and Thrun}]{verma2004real}
-Verma, V., Gordon, G., Simmons, R., and Thrun, S. (2004).
-\newblock Real-time fault diagnosis [robot fault diagnosis].
-\newblock \emph{Robotics \& Automation Magazine, IEEE}, 11(2), 56--66.
 
 \bibitem[{World-nuclear(2012)}]{wna}
 World-nuclear (2012).
