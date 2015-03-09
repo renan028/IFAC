@@ -219,7 +219,7 @@
                                       % top of first footnote.
 \floatsep 8\p@ \@plus 4\p@ \@minus 2\p@ % Space between adjacent floats moved
                                          % to top or bottom of text page.
-\textfloatsep 3.5\p@ \@plus 3.5\p@ \@minus 2\p@ % Space between main text and
+\textfloatsep 8\p@ \@plus 4\p@ \@minus 2\p@ % Space between main text and
 % floats
                                          % at top or bottom of page.
 \intextsep 8\p@ \@plus 4\p@ \@minus 2\p@ % Space between in-text figures and
@@ -1633,8 +1633,8 @@ et\or eu\or ew\or ex\or ey\or ez\else\@ctrerr\fi}
 \def\subsubsection{\@startsection{subsubsection}{3}{\z@}{0.3\@bls
   \@plus .2\@bls}{-1em}{\normalsize\itshape}}	% WAS \@bls PMISRA 2007-05-30
 \def\section{\@startsection{section}{1}{\z@}
- {6\p@ \@plus 0.5\@bls \@minus 4\p@}		% WAS 18 PMISRA 2007-05-30
- {6\p@ \@plus 1\p@ \@minus 2\p@}
+ {4\p@ \@plus 0.5\@bls \@minus 4\p@}		% WAS 18 PMISRA 2007-05-30
+ {4\p@ \@plus 1\p@ \@minus 2\p@}
  {\centering}}
 \def\subsection{\@startsection{subsection}{2}{\z@}
  {6\p@ \@plus 0.5\@bls \@minus 4\p@}		% WAS 18 PMISRA 2007-05-30
