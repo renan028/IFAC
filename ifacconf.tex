@@ -586,14 +586,14 @@ marking a desired setpoint position on the interface.
 
 \section{Experimental tests and results}\label{sec:results}
 A prototype named \emph{Single Autonomous Module} (SAM) was built to verify the
-previous proposed concepts. In addition, some VSS functionalities were
-individually tested, but not yet fully integrated with SAM. The subsections
+proposed concepts. In addition, some VSS functionalities were
+individually tested, but not yet fully integrated with SAM. Subsections
 \ref{sec:SAM_tests} and \ref{sec:VSS_tests} below detail the executed tests.
 
 \subsection{Single Autonomous Module (SAM)}\label{sec:SAM_tests}
 SAM (Fig.~\ref{fig:SAM2}) is a single module composed of an AXIS ethernet fixed
 camera, two USB Minoru stereoscopic Webcams, an IMU, a Cisco wireless router,
-four EC-4pole 200 W motors and Maxon EPOS2 drivers, a PCIe/104 with Intel Core i7
+four Maxon motor packs and Maxon EPOS2 drivers, a PCIe/104 with Intel Core i7
 computer module, 4GB DDR3 RAM, 240GB SSD (Kingston), and a dual-channel
 opto-isolated PCI-express CAN interface.
 
@@ -608,10 +608,10 @@ The SAM's electronics power bus uses 14 AWG wires (up to 15 A), and the motors
 power bus uses 12 AWG wires (up to 21 A). The \emph{power
 bus switching PCB} was not yet implemented, thus diodes were welded on the
 positive pole of each battery and then this pair of cables was connected to a
-screw block linking the positive poles on a specific bus. The same with the
-negative poles in another area of the screw block, creating then a parallel
+screw block linking the positive poles on a specific bus. The same was done with
+the negative poles in another area of the screw block, creating a parallel
 connection. After the screw block, a 20 A cable is connected to the input of
-the DC/DC converters, and their output is delivered to the corresponding device.
+the DC-DC converters, and their output is delivered to the corresponding device.
 
 Concerning electronics, power supply, and software, the first objectives of SAM were to test the following concepts:
 \begin{enumerate}[i)]
@@ -623,29 +623,29 @@ Concerning electronics, power supply, and software, the first objectives of SAM 
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=8.4cm]{figs/SAM4.jpg}
+\includegraphics[width=8.4cm]{figs/SAM5.jpg}
 \caption{SAM - Single Autonomous Module.}
 \label{fig:SAM2}
 \end{figure}
 
-The communication system was implemented: \emph{Ethernet communication network}
-to connect the fixed camera, the computer, and the access point; \emph{Wi-Fi
-communication network} to connect SAM with the base; \emph{CAN bus} to
-control the actuation; two stereoscopic Webcams and IMU were plugged to the
-computer through USB connections. The robot operation range is
-limited to the Wi-Fi antenna, and to improve it Wi-Fi
-repeaters and intrinsic safe barriers should be installed in the oil platform.
-To ensure data loss prevention, all data is firstly stored in the robot, processed and
-then transmitted.
+The communication system was implemented as the following: an \emph{Ethernet
+communication network} to connect the fixed camera, the computer, and the access
+point; a \emph{Wi-Fi communication network} to connect SAM with the operation
+base; a \emph{CAN bus} to control the actuators; and two stereoscopic
+Webcams and IMU were plugged to the computer through USB connections. The robot operation range is
+limited to the Wi-Fi antenna, and, to improve it Wi-Fi,
+repeaters and intrinsic safe barriers should be installed.
+To ensure data loss prevention, all data is firstly stored and processed
+locally, and then transmitted.
 
 The concept of independent power buses proved to be efficient, and the designed
 battery capacity could handle the system energy demand. The robot autonomy was
-greater then $5$ $h$, but it will highly depend on the embedded devices, the
-required task and the rail format. It was observed that when SAM moves
-downwards, the motors brake the robot instead of accelerating it, and generate
-a brake energy on the way back to the source. Depending on the length of the
-downhill section and the robot's speed, this energy may reach a voltage level
-that causes the motors drivers to reset. 
+greater than five hours, but it will highly depend on the embedded devices, the
+required task and the rail track. It was observed that when SAM moves
+downwards, the motors control brake the robot, generating a brake energy on the
+way back to the source. Depending on the length of the downhill section, and on
+the robot's speed, this energy may reach a voltage level that causes the motors
+drivers to reset.
 %This issue must be further studied to
 %investigate if it is worth to store this extra energy or simply waste it using
 % an additional device to dissipate this energy as heat.
@@ -653,70 +653,68 @@ that causes the motors drivers to reset.
 Furthermore, it was verified that SAM can be teleoperated from anywhere by
 accessing its Wi-Fi network and the GUI developed in Qt environment. SAM has
 already been teleoperated by Petrobras (from Brazil) and by Statoil (from Norway). The robot performed position and
-velocity tracking tasks and the video camera frames were two seconds delayed
-to the Statoil end user. The goal for DORIS system is to be an autonomous robot
-and to be operated inside the offshore facility, thus the video camera frame
-delay to onshore users are not the major concern.
+velocity tracking tasks and the video camera frames were sent from Brazil and
+received in Norway with a two seconds delay. As the main goal of DORIS is to
+have autonomous capabilities and to be operated locally in the offshore
+platform, delays due to distance souldn't be of major concern.
 
 \subsection{Vehicle Support System (VSS) Tests}\label{sec:VSS_tests}
 All DORIS VSS functions were successfully tested independently. The AVR firmware was programmed in C++ using Atmel Studio 6.1.
 The following tests/implementations were successfully performed:
 \begin{enumerate}[i)]
-    \item Logic to command the \emph{solid-state relays} to turn on/off some devices: the
-    relays can be opened/closed;
+    \item Logic to command the \emph{solid-state relays} to turn on/off some devices;
     \item Acquisition of \emph{module voltages} and \emph{module currents}:
-    DC-DC voltage (5, 12 and 24 VDC), battery raw voltage measurements, and the
+    DC-DC voltage (5, 12 and 24 Vdc), battery raw voltage measurements, and the
     currents that supply each device;
-    \item Acquisition of \emph{module temperature/humidity}: the measurements of
-    the module temperature and humidity;
-    \item Acquisition of \emph{battery information} (SMBUS): voltage,
+    \item Acquisition of \emph{module temperature/humidity};
+    \item Acquisition of \emph{battery information} through SMBUS: voltage,
     temperature, current, state of charge, and battery status;
-    \item \emph{Timers} to enable robot shutdown in predetermined time and
+    \item \emph{Timers} to enable robot shutdown in predetermined time, and
     periodic data report of voltages, currents, relays status, temperature, and
     humidity;
-    \item \emph{Ethernet Communication} all data can be accessed via Ethernet.
+    \item \emph{Ethernet Communication}: all data can be accessed via Ethernet.
 \end{enumerate}
 
 \section{Conclusion and Future work}\label{sec:conclusions}
 
 In this paper, we presented the EE and software architecture
-of the DORIS project, which endeavors to develop an offshore facilities inspection and monitoring robot.
+of the DORIS project, which endeavors to develop an offshore facilities
+inspection and monitoring robot. All the mobile offshore robots seen so far are
+wheeled robots,  which enables great flexibility and a large inspection area. However,
+they have to deal with complex problems compounded by the offshore platform environment,
+such as autonomous navigation, mobility, and collision avoidance. DORIS uses a
+rail for motion as a tradeoff between constrained mobility and alleviation of
+of the above issues. It has an onboard electronics with multiple fail safes,
+power management, and a state of the art vehicle support system.
 
 %The prototype is based on rail guided modules powered by a battery system and equipped with multiple
 %sensors that enable the detection of anomalies, such as abandoned objects and
 %gas leakage.
 
-A prototype, SAM, was built to test electronics, power supply, and software architecture concepts.
+A prototype, SAM, was built to test the electronics, power supply, and software
+architecture concepts.
 Preliminary results show good overall performance of sensor integration and
 communication, independent power buses for electronics and motors, and
 teleoperation.
 
-The Vehicle Support System was tested outside the robot and the customized
-PCBs were able to monitor temperature/humidity, DC/DC
-voltage levels, the devices' currents, and batteries.
+The Vehicle Support System was tested in a simple testing platform, and the
+customized PCBs were able to monitor temperature/humidity, DC-DC
+voltage levels, the devices' currents, and batteries data via SMBUS.
 %The solid-state relays can also turn on/off the devices for protection and/or
 %efficiently power consumption.
-
-The general developed robots for offshore facilities are mobile wheeled robots
-which navigate around the ground, limiting robot inspection due to stairs,
-manipulator range, and object collision. DORIS is a rail-guided robotic system,
-which is a tradeoff for a dedicated and autonomously inspection. DORIS has
-an onboard electronics with multiple fail safes, power management and a
-state of the art vehicle support system.
 
 Ongoing implementations and future challenges include:
 \begin{enumerate}[i)]
  
   \item \emph{New VSS tests}:
-  The BMS logic that uses the SMBUS data to manage DORIS energy distribution
-  will be implemented;
+  implementation of the BMS logic that uses the SMBUS data to manage energy distribution;
   %\item \emph{Expansion and reconfiguration of robot modules}:\\
   %DORIS will need more than one module to support all the defined devices and
   % features.
   %The EE system permits the free expansion and reconfiguration of DORIS
   % modules, enabled by the bus topology for DORIS main networks: Ethernet and CAN.
-  \item \emph{Autonomous operation}:
-  DORIS autonomous operation is a challenge for the software development. 
+  \item \emph{Autonomous operation}: advanced localization, mapping, and
+  mission control;
   %The
   %Positioning System, which currently comprises wheels' encoders (odometry), a
   %fixed camera (3D mapping), and an inertial movement unit
@@ -727,7 +725,7 @@ Ongoing implementations and future challenges include:
   An electrostatic discharger should be designed to drain the accumulated
   charge from the shielding system;
   \item \emph{Solution for DORIS downhill motion issue}: Tests will be held to measure the generated amount of energy to decide
-  if it is worth to embed a device to store or waste it;
+  if it is worth to store or waste it;
   \item \emph{Hardware Certification}: 
   DORIS must be certified to operate in harsh and explosive environments.
 \end{enumerate}
