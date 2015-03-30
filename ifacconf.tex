@@ -3,7 +3,7 @@
 % Template for IFAC meeting papers
 % Copyright (c) 2007-2008 International Federation of Automatic Control
 %===============================================================================
-\documentclass{ifacconf}
+\documentclass{ifacconf} 
 
 \usepackage{graphicx}      % include this line if your document contains figures
 \usepackage{natbib}        % required for bibliography
@@ -12,7 +12,7 @@
 
 %===============================================================================
 \begin{document}
-\begin{frontmatter} 
+\begin{frontmatter}  
   
 % Title, preferably not more than 10 words.
 
@@ -164,7 +164,7 @@ elevation system.
 %\end{enumerate}
 
 The SINTEF Topside Robotic System is an intelligent instrumentation system
-designed to enable onshore operators to monitor and control the platform’s
+designed to enable onshore operators to monitor and control the platform's
 processes (\cite{kyrkjebo2009robotic}).
 
 DORIS is an offshore inspection and monitoring robot being developed by
@@ -309,7 +309,7 @@ vibration, electrically shielded to avoid explosion by ignition, and equipped
 with a monitoring system. Another concern is that the embedded computers must
 run heavy signal processing algorithms, requiring high computational power. On
 the other hand, the power supply system must efficiently provide power and
-maintain a low level of power consumption.
+maintain a low level of power consumption. 
 
 
 %Further complications arise because the system is designed to move in confined
@@ -389,7 +389,7 @@ The \emph{Vehicle Support System (VSS)} (\cite{MARIUS}) is composed of
 microcontroller based \emph{printed circuit boards} (PCBs) designed for:
 
 \begin{enumerate}[i)]
-\item \emph{Failure detection} achieved by the monitoring of devices’
+\item \emph{Failure detection} achieved by the monitoring of devices'
 current/voltage and module temperature and humidity;
 \item \emph{Devices protection} Devices protection against overcurrent by fuses and
 solid-state relays;
@@ -403,10 +403,10 @@ DORIS VSS is part of EE hardware (Fig.~\ref{fig:EE-Communications}), and
 includes three types of PCBs: Supervisory, Battery Management Sytem (BMS) and
 Power Bus Switching (PBS).
 
-The \emph{supervisory PCB} is composed of an ATMEL AVR AT90CAN64 microcontroller
+The \emph{Supervisory} is composed of an ATMEL AVR AT90CAN64 microcontroller
 and several sensors. Its main monitoring functionalities are to read: supply
 currents of peripheral devices (hall-effect sensors and a 16-ch Analog to
-Digital Converter (ADC)); the module’s temperature/humidity (I2C SHT71 sensor);
+Digital Converter (ADC)); the module's temperature/humidity (I2C SHT71 sensor);
 and the supply voltages (AVR embedded ADC). The AVR manages the collected data,
 reports them periodically to DORIS computer via Ethernet, and locally detects or
 reacts to faulty situations. Since Ethernet is not an available interface in
@@ -416,16 +416,16 @@ devices against overcurrent/overvoltage by commanding the open/close state of
 solid-state relays, hence turning off the devices. All these AVR
 functionalities can also be commanded by the remote operator.
 
-The \emph{BMS PCB} is in charge of managing the power supply system. It
+The \emph{BMS} is in charge of managing the power supply system. It
 communicates with the batteries via \emph{System Management Bus} (SMBUS) and has
-a connection with the \emph{PBS PCB}. SMBUS is the interface of the telemetry
+a connection with the \emph{PBS}. SMBUS is the interface of the telemetry
 system embedded in DORIS batteries. This system collects important information
 from the batteries, such as temperature, voltage, current and state of charge.
 The BMS PCB periodically reports all data to DORIS computer via Ethernet with
 the UART-to-Ethernet converter.
 
-The \emph{PBS PCB} contains high power solid-state relays (20 A), which can be
-commanded from the \emph{BMS PCB} to distribute the power of each battery pack.
+The \emph{PBS} contains high power solid-state relays (20 A), which can be
+commanded from the \emph{BMS} to distribute the power of each battery pack.
 The decisions about the best power balancing are based primarily on data
 collected via SMBUS.
 
@@ -455,14 +455,14 @@ at least 400 to 500  $\mu F/A$ (\cite{capacitor}). In the case of DORIS, as each
 motor may require a peak current of 20 A, a capacitor bank dedicated for each
 driver would need between 8000 and 10000 $\mu F$, 36 V (maximum operating
 voltage). Also, the capacitors should have low equivalent series resistance and
-should be located as closely as possible to the noise source, namely the
-motors.
+should be located as close as possible to the noise source, namely the
+motors. 
 
-The batteries are connected to the \emph{PBS PCB}, which has solid state relays
+The batteries are connected to the \emph{PBS}, which has solid state relays
 able to link each battery to any of the two power buses and diodes to avoid back
 flow current for safety. This is done by switching both the positive and the
-negative poles of a battery into a power bus simultaneously. The \emph{PBS PCB}
-logic is implemented on the \emph{BMS PCB}, responsible for commanding the
+negative poles of a battery into a power bus simultaneously. The \emph{PBS}
+logic is implemented on the \emph{BMS}, responsible for commanding the
 relays in order to guarantee a safe and robust operation.
 
 \section{Software Architecture}\label{sec:software}
@@ -484,7 +484,7 @@ environment is proposed, named \emph{Robot Package Software}. It is based on
 communication units) grouped into \emph{Robot Packages} (which are dynamic
 libraries), and also the \emph{ROS node} \emph{Robot GUI} (that can load those
 \emph{Robot Packages} on run-time). The \emph{Components} that deal with
-hardware should run on the robot’s embedded PC, while others that interact with
+hardware should run on the robot's embedded PC, while others that interact with
 Tools should run on the HCB. Components communicate with each other through
 ROS, thus allowing the HCB to view and control the robot.
 Fig.~\ref{fig:robotgui} shows the robot control through the Robot GUI.
@@ -560,7 +560,7 @@ motion capabilities. The rail was installed in the GSCAR laboratory, in
 COPPE/UFRJ (Brazil), and SAM was able to fully move throughout the entire track.
 
 SAM's electronics power bus uses 14 AWG wires (up to 15 A), and the motors power
-bus uses 12 AWG wires (up to 21 A). The \emph{power bus switching PCB} was not
+bus uses 12 AWG wires (up to 21 A). The \emph{PBS} was not
 yet implemented, thus diodes were welded on the positive pole of each battery
 and then this pair of cables was connected to a screw block linking the positive
 poles on a specific bus. The same was done with the negative poles in another
@@ -601,14 +601,14 @@ greater than five hours, but this will highly depend on the embedded devices,
 the required task, and the rail track. It was observed that when SAM moves
 downwards, the motors control brake the robot, generating a brake energy on the
 way back to the source. Depending on the length of the downhill section, and on
-the robot’s speed, this energy may reach a voltage level that causes the motors
-drivers to reset.
+the robot's speed, this energy may reach a voltage level that causes the motors
+drivers to reset. 
 
 Furthermore, SAM has already been teleoperated by Petrobras (from Brazil) and by
 Statoil (from Norway) using a ROS web bridge. The robot performed position and
 velocity tracking tasks and the video camera frames were sent from Brazil and received in Norway with a two seconds
 delay. As the main goal of DORIS is to have autonomous capabilities and to be
-operated locally in the offshore platform, delays due to distance souldn’t be
+operated locally in the offshore platform, delays due to distance should not be
 of major concern.
 
 \subsection{Vehicle Support System (VSS) Tests}\label{sec:VSS_tests}
@@ -647,7 +647,7 @@ and motors, and teleoperation.
 
 The Vehicle Support System was tested in a simple testing platform, and the
 customized PCBs were able to monitor temperature/humidity, DC-DC voltage levels,
-the devices’ currents, and batteries data via SMBUS. 
+the devices' currents, and batteries data via SMBUS. 
 
 Ongoing implementations and future work include:
 \begin{enumerate}[i)]
