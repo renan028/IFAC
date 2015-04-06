@@ -62,22 +62,22 @@ University of Life Sciences, Oslo, Norway}
  \address[3]{Research and Development Center, Petrobras/CENPES,
  Rio de Janeiro, Brazil}
  \address[4]{TPD RDI Frontier Developments (FD), Statoil Brasil \'{O}leo e G\'{a}s Ltda., Rio de Janeiro, Brazil}
- \address[5]{TPD RDI Mature Area Development and Increased Oil recovery (MADI) , Statoil ASA, Bergen, Norway}
+ \address[5]{TPD RDI Mature Area Development and Increased Oil Recovery (MADI) ,
+ Statoil ASA, Bergen, Norway}
 
 \begin{abstract}                % Abstract of not more than 250 words.
-DORIS is a research project which endeavors to design and implement a mobile
-robot for remote supervision, diagnosis, and data acquisition on offshore
-facilities. The proposed system is composed of a rail-guided robot capable of
-carrying different sensors through the inspected area. This paper presents a
-general overview of the robot, and a description of the developed embedded
-electronics, power supply system and software architecture. The results
-with teleoperated navigation validate the concepts considered so far and
-rise several challenges for future works.
+DORIS is a mobile robot for remote supervision, diagnosis, and data acquisition
+on offshore facilities. The proposed system is composed of a rail-guided robot
+capable of carrying different sensors through the inspected area. This paper
+presents a general overview of the robot, and a description of the developed
+embedded electronics, power supply system and software architecture. The
+results with teleoperated navigation validate the concepts considered so far
+and rise several challenges for future works.
 \end{abstract}
 
 \begin{keyword}
 mobile robots; field robotics; embedded electronics; robotic
-software architecture;
+software architecture.
 \end{keyword}
 
 \end{frontmatter}
@@ -85,8 +85,8 @@ software architecture;
 
 \section{Introduction}
 The Oil \& Gas (O\&G) demand is expected to grow rapidly in the next decades
-(\cite{wna}) and the need to obtain resources from hostile environments will increase
-operation costs. Also, working conditions on offshore installations, such as
+\citep{wna} and the need to obtain resources from hostile environments will
+increase operation costs. Also, working conditions on offshore installations, such as
 unfriendly atmosphere, heavy weather, extreme temperatures, and constrained
 space are serious obstacles for O\&G companies. In order to be competitive, they
 are looking into new technologies to be able to produce marginal fields. The
@@ -96,7 +96,7 @@ decreasing operational and logistics costs.
 
 In the specific case of Brazil, the O\&G industry is growing. The
 recent discoveries of big oil fields in the pre-salt layer of the Brazilian
-coast, located 300 km from the shore at depths of 5000-7000 km (\cite{presal}),
+coast, located 300 km from the shore at depths of 5000-7000 m \citep{presal},
 motivates the development of an offshore production system with high degree of
 automation.
 
@@ -106,13 +106,14 @@ automation.
 % in case of an emergency.
 Recent studies forecast a substantial decrease in the level of human operation
 and an increase in automation on future oil fields
-(\cite{skourup2009robotized}). The studies also point out the potential increase
+\citep{skourup2009robotized}. The studies also point out the potential increase
 in efficiency and productivity with robot operators, besides of the improvement
 in Health, Safety, and Environment (HSE) conditions, as robots can replace
-humans in tasks performed in unhealthy, hazardous, and confined areas (\cite{pal}).
+humans in tasks performed in unhealthy, hazardous, and confined areas
+\citep{pal}.
 
 The use of robotics in O\&G industry represents great technological challenges
-to overcome the following aspects of offshore environments (\cite{chen}):
+to overcome the following aspects of offshore environments \citep{chen}:
 
 \begin{enumerate}[i)]
 \item \emph{Atmospheric conditions} on offshore platforms are unfriendly, as
@@ -139,12 +140,14 @@ and maintenance tasks, which include valve and lever manipulation, gas level
 and leakage monitoring, acoustic anomalies diagnosis, and smoke and fire
 detection.
 
-The MIMROex inspection robot (\cite{mimroex}), developed by the Fraunhofer
+Some examples found in the literature are:
+
+The MIMROex inspection robot \citep{mimroex}, developed by the Fraunhofer
 Institute of Manufacturing Engineering and Automation (IPA), is capable of
 safely navigating in offshore environments, and autonomously executing
 inspection tasks.
 
-Sensabot (\cite{sensabot}), a teleoperated inspection robot developed by
+Sensabot \citep{sensabot}, a teleoperated inspection robot developed by
 Carnegie Mellon University, was designed for severe weather and atmosphere,
 being certified to operate in toxic, flammable and explosive environments. The
 protoype was capable of safely operating on an onshore facility, executing all
@@ -165,19 +168,20 @@ elevation system.
 
 The SINTEF Topside Robotic System is an intelligent instrumentation system
 designed to enable onshore operators to monitor and control the platform's
-processes (\cite{kyrkjebo2009robotic}).
-
-DORIS is an offshore inspection and monitoring robot being developed by
-COPPE/UFRJ in collaboration with Petrobras and Statoil. The robot moves through
-a rail carrying different sensors, analyzing sensor data \emph{in loco} or
-storing it for future investigation. The sensors can identify abnormalities
-such as intruders in restricted areas, abandoned objects, smoke, fire, and
-liquid and gas leakages. The robot has an embedded manipulator, which enables
-machinery vibration diagnosis, instruments reading, and sample taking
-(\cite{cba}).
+processes \citep{kyrkjebo2009robotic}.
 
 In this paper, we present a general overview of the DORIS robot, and a detailed
 description of the embedded electronics, power supply system and software architecture.
+
+DORIS is an offshore inspection and monitoring robot being developed by
+COPPE/UFRJ in collaboration with Petrobras and Statoil. The robot moves through
+a rail carrying different sensors, processing sensor data \emph{in loco} or
+storing it for future analysis. The sensors can identify abnormalities
+such as intruders in restricted areas, abandoned objects, smoke, fire, and
+liquid and gas leakages. The robot has an embedded manipulator, which enables
+machinery vibration diagnosis, instruments reading, and sample taking
+\citep{cba}.
+
 %This text is organized as follows: a general overview of the robot and its main
 %challenges are presented in Section \ref{sec:general_overview}, detailed
 %descriptions of the embedded electronics, the vehicle support system, power
@@ -189,22 +193,22 @@ description of the embedded electronics, power supply system and software archit
 
 \section{General Overview}\label{sec:general_overview}
 
-DORIS moves through a rail and both of them are based on a modular concept.
+One of the main features of the DORIS robot design is its modualr concept.
 Additional robot modules can be attached to include extra sensors, and the rail
 track can be modified by adding or replacing rail segments, thus enabling
 operation in different areas of the platform. Figure~\ref{fig:DORIS-overview}
 illustrates the operation in a production plant.
 
-The robot is controlled autonomously or by teleoperation. Task managing can be
-either in automatic (programmed using a mission interface) or manual mode
-(real-time remote operation). The teleoperation and monitoring capabilities
+The robot can be controlled autonomously or by teleoperation. Task managing can
+be either in automatic (programmed using a mission interface) or manual mode
+(remote operation). The teleoperation and monitoring capabilities
 guarantee online access to the embedded sensors, providing information of the
 surrounding environment and the robot operating conditions with real-time
 processing.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=8.4cm]{figs/cenario5.jpg}
+\includegraphics[width=8.4cm]{figs/cenario5_crop.jpg}
 \caption{Illustration of DORIS operation in a production plant.}
 \label{fig:DORIS-overview}
 \end{figure}
@@ -256,13 +260,13 @@ signal processing, electronics, power supply and software.
 %Mechanics
 %-------------------------------------------------------------------------------------------------------------------------
 The \emph{mechanics} comprises the robot modules, their coupling joints, and the
-rail. The mechanical design allows the robot to move smoothly in a 3D space and
+rail. The mechanical design allows the robot to move smoothly and
 to make a full stop anywhere on the rail track. It incorporates the use of
 gimbals containing traction and guide wheels which surround a tubular rail.
 Since the rail in an offshore facility may be as long as kilometers, it is
 designed to be as simple as possible to keep its cost to a minimum, while the
 design complexity is left to the robot. The use of two sets of gimbals provide
-mechanical compliance with rail curvatures, and smoothness of the robot's
+mechanical compliance to the rail curvatures, and smoothness to the robot's
 motion.
 
 The robot is composed of two modules in default configuration, has an estimated
@@ -274,22 +278,25 @@ curved tubes.
 %DSP
 %-------------------------------------------------------------------------------------------------------------------------
 DORIS has the following signal processing capabilities:
-\begin{enumerate}[i)]
-\item \emph{Video}: use of multiple cameras (visible-light, infrared, panoramic,
-and stereo) to detect video anomalies such as abandoned objects, smoke, fire, and fluid leakage;
-\item \emph{Audio}: detection of anomalies of impulsive nature, such as an
-explosion, and machinery diagnosis based on energy and pitch (fundamental
+\begin{itemize}
+\item \emph{Video analysis}: use of multiple cameras (visible-light, infrared,
+panoramic, and stereo) to detect video anomalies such as abandoned objects, smoke, fire, and fluid leakage;
+\item \emph{Audio analysis}: detection of anomalies of impulsive nature, such as
+an explosion, and machinery diagnosis based on energy and pitch (fundamental
 frequency) signatures using a single or an array of microphones;
 \item \emph{Vibration analysis}: use of accelerometers to
 diagnose the operation mode of rotating machines, performing possible fault
 classification, such as misalignment and unbalancing operation;
-\item \emph{Gas sensor}: identification of gas level and leakages;
-\item \emph{Mapping}: environment 3D model with a laser scanner.
-\end{enumerate}
+\item \emph{Leakage detection}: identification of gas level and leakages by
+processing measurements from hydrocarbon sensors;
+\item \emph{Mapping}: environment 3D modeling using data from a laser
+scanner.
+\end{itemize}
 
-The main idea of all these signal processing features is to make the robot
-perform an initial reference round on the closed rail track, being manually
-validated by a system operator. In the subsequent rounds, all signal processing
+As a first step to initiate the operation, the robot will be required to
+collect enough data from the sensors by performing one or more loops on the
+closed rail track which, after being manually validated by a system operator,
+will be used as a reference. In the subsequent loops, all signal processing
 algorithms compare the newly acquired signals with the reference data to detect
 any form of anomaly, as indicated above. Once an anomalous behavior is
 detected, an alarm is flagged to the system, which stores all associated data
@@ -301,9 +308,9 @@ processing systems of DORIS can be found in \cite{OTC} and \cite{cba}.
 %-------------------------------------------------------------------------------------------------------------------------
 %OTHER CHALLENGES
 %-------------------------------------------------------------------------------------------------------------------------
-Considering the robot functionalities and the aggressive offshore environment,
-several challenges should be addressed. Regarding the robustness and safety
-required to operate in classified areas, the robot must be: sealed against water
+Considering the desired robot functionalities and the aggressive offshore
+environment where it will operate, several challenges are posed to the system.
+Regarding the robustness and safety required to operate in classified areas, the robot must be: sealed against water
 and particles, resistant to a wide temperature range, protected from impact and
 vibration, electrically shielded to avoid explosion by ignition, and equipped
 with a monitoring system. Another concern is that the embedded computers must
@@ -330,24 +337,22 @@ heavy data processing, data storing, data management, control of the actuation
 system, and teleoperation.
 
 The computer is composed of a high performance \linebreak Intel\textregistered
-Core\texttrademark i7 microprocessor embedded in a PCIe/104 form factor board,
+Core\texttrademark i7 microprocessor in a PCIe/104 form factor board,
 RAM cards and an SSD (\emph{solid-state drive}) card. The use of these
 components enables an easy expansion of the system.
 
 The \emph{remote base} is the user workstation in the offshore
 facility through where DORIS can be teleoperated. It is 
 composed of a radio joystick, a Wi-Fi access point and a
-computer system with a graphical user interface (GUI).
+computer with a graphical user interface (GUI).
 
 The \emph{communication system} comprises the data traffic within the robot, and
 between the robot and the remote base. This system is composed of:
 
 \begin{enumerate}[i)]
-\item \emph{Local Gigabit Ethernet} network for heavy data realtime
-traffic within the robot, such as video, audio and
-commands from/to the computer;
-\item \emph{Controller Area Network} (CAN) bus for control commands
-to the actuation system;
+\item \emph{Local Gigabit Ethernet} network for heavy data traffic within the robot, such as video, audio and
+commands from/to the PCIe/104 module;
+\item \emph{Controller Area Network} (CAN) bus to communicate with the actuation system;
 \item \emph{Wireless technologies}: DORIS can be remotely operated
 via Wi-Fi IEEE 802.11n or via 2.4/5.0 GHz radio
 joystick, upon Wi-Fi absence or failure.
@@ -364,7 +369,7 @@ subsystem}, which is composed of four controller drivers (Maxon EPOS2 70/10) and
 four motor packs, each containing a high power 200 W EC-4pole Maxon brushless
 motor, an encoder and a high power planetary gearhead with 21:1 ratio. DORIS
 traction is commanded via CAN bus (computer to drivers), which provides
-reliability and appropriate speed to this application (\cite{can}). The
+reliability and appropriate speed to this application \citep{can}. The
 interface between the computer and the CAN bus is a PCI/104-Express board with
 a galvanic opto-isolator to minimize interference on the rest of the EE system,
 since the motors generate significant conductive noise.
@@ -385,7 +390,7 @@ Fig.~\ref{fig:EE-Communications}.
 \end{figure} 
 
 \subsection{Vehicle Support System}\label{sec:VSS} 
-The \emph{Vehicle Support System (VSS)} (\cite{MARIUS}) is composed of
+The \emph{Vehicle Support System (VSS)} \citep{MARIUS} is composed of
 microcontroller based \emph{printed circuit boards} (PCBs) designed for:
 
 \begin{enumerate}[i)]
@@ -451,7 +456,7 @@ from undesired peaks, and buttons allow power buses to be separately turned on/o
 Since DC batteries are the power source of the robot, there is no need of
 capacitors to correct delays between current and voltage. However, a capacitor
 bank would allow additional energy to the motors. The capacitor bank must have
-at least 400 to 500  $\mu F/A$ (\cite{capacitor}). In the case of DORIS, as each
+at least 400 to 500  $\mu F/A$ \citep{capacitor}. In the case of DORIS, as each
 motor may require a peak current of 20 A, a capacitor bank dedicated for each
 driver would need between 8000 and 10000 $\mu F$, 36 V (maximum operating
 voltage). Also, the capacitors should have low equivalent series resistance and
@@ -469,8 +474,8 @@ relays in order to guarantee a safe and robust operation.
 The software architecture allows the implementation of high and low level
 control of the robot. It considers two important factors: tools are open-source
 and provide modular functionalities. These requirements led to the adoption of
-Qt as the graphical interface framework (\cite{qt}), Robot Operating System
-(ROS) as the communication middleware (\cite{ros}), and Linux/Ubuntu as the
+Qt as the graphical interface framework \citep{qt}, Robot Operating System
+(ROS) as the communication middleware \citep{ros}, and Linux/Ubuntu as the
 operating system.
 
 The software provides autonomous control (programmed tasks) and remote control
